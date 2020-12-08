@@ -1,4 +1,5 @@
 import "./main.css";
+import "./main.scss";
 import _ from "lodash";
 
 function component() {

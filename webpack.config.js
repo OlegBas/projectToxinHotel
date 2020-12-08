@@ -15,13 +15,19 @@ module.exports = {
     port: 9000,
     open: true,
   },
-  plugins: [new HtmlWebpackPlugin(), new MiniCssExtractPlugin()],
   module: {
     rules: [
+      // CSS, PostCSS, Sass
       {
-        test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, "css-loader"],
+        test: /\.(scss|css)$/,
+        use: ["style-loader", "css-loader", "sass-loader"],
       },
     ],
   },
+  plugins: [
+    new HtmlWebpackPlugin(),
+    new MiniCssExtractPlugin({
+      filename: `[name].min.css`,
+    }),
+  ],
 };
