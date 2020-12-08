@@ -17,7 +17,11 @@
   },
   "scripts": {
     "dev": "webpack serve",
-    "build": "webpack --config ./webpack.config.js"
+    "build": "webpack --config ./webpack.config.js",
+    "git:status": "git status",
+    "git:log": "git log --oneline",
+    "git:push": "git push",
+    "git push --force": "git push --force"
   },
   "repository": {
     "type": "git",
