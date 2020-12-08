@@ -1,5 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.js",
@@ -13,4 +14,5 @@ module.exports = {
     port: 9000,
     open: true,
   },
+  plugins: [new HtmlWebpackPlugin()],
 };
