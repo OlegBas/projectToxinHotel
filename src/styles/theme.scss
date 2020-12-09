@@ -6,9 +6,33 @@
   font-style: normal;
 }
 @font-face {
-  font-family: "Quicksand";
+  font-family: "Quicksand-b";
   src: url("./../assets/fonts/quicksand/quicksand-bold.woff2"),
     url("./../assets/fonts/quicksand/quicksand-bold.woff");
+  font-weight: 400;
+  font-style: bold;
+}
+
+@font-face {
+  font-family: "Opensans-b";
+  src: url("./../assets/fonts/opensans/opensans-bold.woff2"),
+    url("./../assets/fonts/opensans/opensans-bold.woff");
+  font-weight: 400;
+  font-style: bold;
+}
+
+@font-face {
+  font-family: "Montserrat-b";
+  src: url("./../assets/fonts/Montserrat/montserrat-bold.woff2"),
+    url("./../assets/fonts/Montserrat/montserrat-bold.woff");
+  font-weight: 400;
+  font-style: bold;
+}
+
+@font-face {
+  font-family: "Fontawesome-b";
+  src: url("./../assets/fonts/font-awesome/fa-brands-400.woff2"),
+    url("./../assets/fonts/font-awesome/fa-brands-400.woff");
   font-weight: 400;
   font-style: bold;
 }
