@@ -3,11 +3,13 @@ const fs = require("fs");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 const PATHS = {
   src: path.resolve(__dirname, "src"),
   dist: path.resolve(__dirname, "dist"),
-  assets: "assets/",
+  assets: path.resolve(__dirname, "src/assets"),
 };
 
 const isDev = process.env.NODE_ENV === "development";
@@ -26,8 +28,8 @@ module.exports = {
   entry: "./js/index.js",
   output: {
     path: PATHS.dist,
-    filename: `./js/${filename("js")}`,
-    publicPath: "/",
+    filename: `./assets/js/${filename("js")}`,
+    publicPath: "",
   },
   devServer: {
     contentBase: PATHS.src,
@@ -44,8 +46,8 @@ module.exports = {
       },
       // CSS, PostCSS, Sass
       {
-        test: /\.(scss|css)$/,
-        use: ["style-loader", "css-loader", "sass-loader"],
+        test: /\.scss$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
       },
       // изображения
       {
@@ -65,7 +67,16 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: `[name].min.css`,
+      filename: `./assets/css/${filename("css")}`,
+    }),
+    new CleanWebpackPlugin(),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: PATHS.assets,
+          to: PATHS.dist + "/assets",
+        },
+      ],
     }),
     ...PAGES.map(
       (page) =>
