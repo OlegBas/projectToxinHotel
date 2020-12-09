@@ -20,10 +20,10 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
+    publicPath: "/",
   },
   devServer: {
-    contentBase: path.join(__dirname, "dist"),
-    compress: true,
+    contentBase: path.join(__dirname, "src"),
     port: 9000,
     open: true,
   },
@@ -38,7 +38,12 @@ module.exports = {
       // CSS, PostCSS, Sass
       {
         test: /\.(scss|css)$/,
-        use: ["style-loader", "css-loader", "sass-loader"],
+        use: [
+          "style-loader",
+          MiniCssExtractPlugin.loader,
+          "css-loader",
+          "sass-loader",
+        ],
       },
       // изображения
       {
