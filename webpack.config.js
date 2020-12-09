@@ -17,6 +17,12 @@ module.exports = {
   },
   module: {
     rules: [
+      // JavaScript
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: ["babel-loader"],
+      },
       // CSS, PostCSS, Sass
       {
         test: /\.(scss|css)$/,
@@ -25,7 +31,10 @@ module.exports = {
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, "./index.html"), // шаблон
+      filename: "index.html", // название выходного файла
+    }),
     new MiniCssExtractPlugin({
       filename: `[name].min.css`,
     }),
