@@ -10,20 +10,27 @@ const PATHS = {
   assets: "assets/",
 };
 
+const isDev = process.env.NODE_ENV === "development";
+const isProd = !isDev;
+
+const filename = (ext) =>
+  isDev ? `[name].${ext}` : `[name].[contenthash].${ext}`;
+
 const PAGES_DIR = `${PATHS.src}/pages`;
 const PAGES = fs
   .readdirSync(PAGES_DIR)
   .filter((fileName) => fileName.endsWith(".pug"));
 
 module.exports = {
-  entry: "./src/index.js",
+  context: PATHS.src,
+  entry: "./js/index.js",
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "bundle.js",
+    path: PATHS.dist,
+    filename: `./js/${filename("js")}`,
     publicPath: "/",
   },
   devServer: {
-    contentBase: path.join(__dirname, "src"),
+    contentBase: PATHS.src,
     port: 9000,
     open: true,
   },
@@ -38,12 +45,7 @@ module.exports = {
       // CSS, PostCSS, Sass
       {
         test: /\.(scss|css)$/,
-        use: [
-          "style-loader",
-          MiniCssExtractPlugin.loader,
-          "css-loader",
-          "sass-loader",
-        ],
+        use: ["style-loader", "css-loader", "sass-loader"],
       },
       // изображения
       {

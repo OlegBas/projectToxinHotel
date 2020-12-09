@@ -26,8 +26,8 @@
     "webpack-dev-server": "^3.11.0"
   },
   "scripts": {
-    "dev": "webpack serve",
-    "build": "webpack --config ./webpack.config.js",
+    "dev": "cross-env NODE_ENV=development webpack serve --mode development",
+    "build": "cross-env NODE_ENV=production webpack --mode production",
     "git:status": "git status",
     "git:log": "git log --oneline",
     "git:push": "git push",
