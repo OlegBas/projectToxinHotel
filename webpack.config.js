@@ -28,6 +28,16 @@ module.exports = {
         test: /\.(scss|css)$/,
         use: ["style-loader", "css-loader", "sass-loader"],
       },
+      // изображения
+      {
+        test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
+        type: "asset/resource",
+      },
+      // шрифты и SVG
+      {
+        test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
+        type: "asset/inline",
+      },
     ],
   },
   plugins: [

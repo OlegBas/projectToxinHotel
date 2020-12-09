@@ -1,5 +1,6 @@
 import "./main.css";
 import "./main.scss";
+import example from "./images/example.jpg";
 // index.js
 // создание свойства класса без конструктора
 class Game {
