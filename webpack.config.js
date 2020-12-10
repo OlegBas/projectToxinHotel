@@ -5,6 +5,78 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const OptimizeCssAssetWebpackPlugin = require("optimize-css-assets-webpack-plugin");
+const TerserWebpackPlugin = require("terser-webpack-plugin");
+const ImageminPlugin = require("imagemin-webpack");
+
+const optimization = () => {
+  const configObj = {
+    splitChunks: {
+      chunks: "all",
+    },
+  };
+
+  if (isProd) {
+    configObj.minimizer = [
+      new OptimizeCssAssetWebpackPlugin(),
+      new TerserWebpackPlugin(),
+    ];
+  }
+
+  return configObj;
+};
+
+const plugins = () => {
+  const basePlugins = [
+    new MiniCssExtractPlugin({
+      filename: `./assets/css/${filename("css")}`,
+    }),
+    new CleanWebpackPlugin(),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: PATHS.assets,
+          to: PATHS.dist + "/assets",
+        },
+      ],
+    }),
+    ...PAGES.map(
+      (page) =>
+        new HtmlWebpackPlugin({
+          template: `${PAGES_DIR}/${page}`,
+          filename: `./${page.replace(/\.pug/, ".html")}`,
+        })
+    ),
+  ];
+
+  if (isProd) {
+    // basePlugins.push(
+    //   // new ImageminPlugin({
+    //   //   bail: false, // Ignore errors on corrupted images
+    //   //   cache: true,
+    //   //   imageminOptions: {
+    //   //     plugins: [
+    //   //       ["gifsicle", { interlaced: true }],
+    //   //       ["jpegtran", { progressive: true }],
+    //   //       ["optipng", { optimizationLevel: 5 }],
+    //   //       [
+    //   //         "svgo",
+    //   //         {
+    //   //           plugins: [
+    //   //             {
+    //   //               removeViewBox: false,
+    //   //             },
+    //   //           ],
+    //   //         },
+    //   //       ],
+    //   //     ],
+    //   //   },
+    //   // })
+    // );
+  }
+
+  return basePlugins;
+};
 
 const PATHS = {
   src: path.resolve(__dirname, "src"),
@@ -36,6 +108,8 @@ module.exports = {
     port: 9000,
     open: true,
   },
+  optimization: optimization(),
+  devtool: isProd ? false : "source-map",
   module: {
     rules: [
       // JavaScript
@@ -44,7 +118,12 @@ module.exports = {
         exclude: /node_modules/,
         use: ["babel-loader"],
       },
-      // CSS, PostCSS, Sass
+      //CSS
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
+      },
+      //Sass
       {
         test: /\.scss$/,
         use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
@@ -65,25 +144,5 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new MiniCssExtractPlugin({
-      filename: `./assets/css/${filename("css")}`,
-    }),
-    new CleanWebpackPlugin(),
-    new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: PATHS.assets,
-          to: PATHS.dist + "/assets",
-        },
-      ],
-    }),
-    ...PAGES.map(
-      (page) =>
-        new HtmlWebpackPlugin({
-          template: `${PAGES_DIR}/${page}`,
-          filename: `./${page.replace(/\.pug/, ".html")}`,
-        })
-    ),
-  ],
+  plugins: plugins(),
 };
