@@ -1,0 +1,7 @@
+mixin renderAllFonts(listFonts)
+  ul.list-fonts
+    for fontItem in listFonts
+      - var {title = "", desc = "", className = "body-text"} = fontItem
+      li(class= `list-fonts__item list-fonts__item_${className}`)
+        p.list-fonts__title= title
+        p.list-fonts__desc= desc

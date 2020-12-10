@@ -1,9 +1,37 @@
-<!DOCTYPE html>
-html(lang="en")
-    head
-        meta(charset="UTF-8")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Index
-    body
-         img(src="./assets/images/example.jpg", alt="Image")
-         h3 Hello WebPack
+extends ../layouts/ui-kit
+include ../components/renderAllColors/renderAllColors
+include ../components/renderAllFonts/renderAllFonts
+
+block head
+  - var title = "Цвета и шрифты проекта";
+
+block content
+    - 
+        var listColors = [
+            {title: "Dark Shade 100%", valHex: "#1F2041", valColor: "#1F2041"},
+            {title: "Dark Shade 75%", valHex: "#1F2041", valColor: "rgba(31, 32, 65, 0.75)"},
+            {title: "Dark Shade 50%", valHex: "#1F2041", valColor: "rgba(31, 32, 65, 0.5)"},
+            {title: "Dark Shade 25%", valHex: "#1F2041", valColor: "rgba(31, 32, 65, 0.25)"},
+            {title: "Dark Shade 5%", valHex: "#1F2041", valColor: "rgba(31, 32, 65, 0.05)"},
+            {title: "Purple", valHex: "#BC9CFF", valColor: "#BC9CFF"},
+            {title: "Green", valHex: "#6FCF97", valColor: "#6FCF97"},
+        ]
+        var listFonts = [
+            {title: "H1",desc: "This one is the sub-section or widget title", className: "sub-section"},
+            {title: "H2",desc: "Next one is the item title inside widgets", className: "item-title"},
+            {title: "H3",desc: "This is a label or CTA text", className: "label"},
+            {title: "Body",desc: "This is the body text which is used for most of the design, like paragraphs, lists, etc.", className: "body-text"},
+        ]
+    
+    main.ui-kit-page
+        .container
+            .ui-kit-row
+                section.ui-kit-col
+                    +renderAllColors(listColors)
+                section.ui-kit-col
+                    +renderAllFonts(listFonts)
+
+   
+    
+
+        

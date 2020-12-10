@@ -1,0 +1,9 @@
+mixin renderAllColors(listColors)
+  ul.list-colors
+    for colorItem in listColors
+      - var {title = "", valHex = "", valColor = ""} = colorItem
+      li.list-colors__item
+        .list-colors__block(style=`background-color: ${valColor}`)
+        .list-colors__desc
+          p.list-colors__title= title
+          = valHex
