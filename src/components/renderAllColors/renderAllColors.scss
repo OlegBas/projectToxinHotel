@@ -1,0 +1,22 @@
+.list-colors {
+  &__item {
+    display: flex;
+    margin-bottom: 20px;
+    align-items: center;
+  }
+  &__block {
+    width: 70px;
+    height: 70px;
+    border-radius: 6px;
+    margin-right: 40px;
+  }
+  &__desc {
+    font-family: $fontSecondary;
+    font-size: 19px;
+    color: $textColor;
+    letter-spacing: -1px;
+  }
+  &__title {
+    font-weight: bold;
+  }
+}

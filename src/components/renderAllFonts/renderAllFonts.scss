@@ -1,0 +1,45 @@
+.list-fonts {
+  max-width: 433px;
+  &__item {
+    display: flex;
+    margin-bottom: 50px;
+    &_subSection {
+      font-size: 25px;
+      line-height: 1.25;
+      .list-fonts__desc {
+        font-family: $fontSecondary;
+        font-weight: bold;
+        color: $textColor;
+      }
+    }
+    &_itemTitle {
+      line-height: 1.264;
+      font-size: $textMd;
+      .list-fonts__desc {
+        font-family: $fontSecondary;
+        font-weight: bold;
+        color: $textColor;
+      }
+    }
+    &_label {
+      line-height: 1.25;
+      font-size: $textSm;
+      .list-fonts__desc {
+        font-weight: bold;
+        color: $textColor;
+        text-transform: uppercase;
+      }
+    }
+    &_bodyText {
+      max-width: 380px;
+      margin-top: -3px; // нужно только для pixel perfect
+      font-size: $baseSizeText;
+    }
+  }
+  &__title {
+    color: $textColor-25;
+    margin-right: 30px;
+    text-align: right;
+    min-width: 37px;
+  }
+}

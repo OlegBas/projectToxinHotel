@@ -1,10 +1,10 @@
+@import "~normalize.css";
+@import "vars.scss";
 @import "theme.scss";
-body {
-  background: black;
-  width: 200px;
-  height: 200px;
-}
-h3 {
-  font-family: "Quicksand";
-  font-size: 30px;
-}
+@import "reset.scss";
+
+@import "ui-kit-layout.scss";
+
+@import "../components/ui-kit-header/ui-kit-header";
+@import "../components/renderAllColors/renderAllColors";
+@import "../components/renderAllFonts/renderAllFonts";
