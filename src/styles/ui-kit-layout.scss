@@ -6,15 +6,12 @@
 .ui-kit-wrapper {
   min-height: 100vh;
 }
+.ui-kit-page {
+  margin-top: 34px;
+}
 .ui-kit-row {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   margin-bottom: 100px;
-}
-.ui-kit-column {
-  margin-right: 40px;
-  &:last-child {
-    margin-right: 0;
-  }
 }

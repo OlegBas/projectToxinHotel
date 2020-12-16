@@ -1,45 +1,60 @@
 .list-fonts {
   max-width: 433px;
+
   &__item {
     display: flex;
     margin-bottom: 50px;
     &_subSection {
-      font-size: 25px;
-      line-height: 1.25;
+      font-size: $textLg;
+      line-height: 29.26px;
       .list-fonts__desc {
-        font-family: $fontSecondary;
+        font-family: $fontPrimary;
         font-weight: bold;
         color: $textColor;
       }
     }
     &_itemTitle {
-      line-height: 1.264;
+      line-height: 23.16px;
       font-size: $textMd;
       .list-fonts__desc {
-        font-family: $fontSecondary;
+        font-family: $fontPrimary;
         font-weight: bold;
         color: $textColor;
       }
     }
     &_label {
-      line-height: 1.25;
+      line-height: 14.63px;
       font-size: $textSm;
       .list-fonts__desc {
         font-weight: bold;
         color: $textColor;
         text-transform: uppercase;
+        margin-top: 5px;
+      }
+      .list-fonts__title {
+        margin-left: 10px;
+        margin-top: 5px;
       }
     }
+
     &_bodyText {
-      max-width: 380px;
-      margin-top: -3px; // нужно только для pixel perfect
+      max-width: 370px;
       font-size: $baseSizeText;
+      line-height: 24px;
+      /*Необходимо для Pixel Perfect !!!    */
+      .list-fonts__title {
+        margin-left: -7px;
+        margin-top: -3px;
+      }
+      .list-fonts__desc {
+        margin-top: -3px;
+        margin-left: -6px;
+      }
     }
   }
   &__title {
     color: $textColor-25;
     margin-right: 30px;
     text-align: right;
-    min-width: 37px;
   }
 }

@@ -11,12 +11,15 @@
     margin-right: 40px;
   }
   &__desc {
-    font-family: $fontSecondary;
-    font-size: 19px;
-    color: $textColor;
     letter-spacing: -1px;
+    font-family: $fontSecondary;
+    font-size: $textMd;
+    color: $textColor;
+    line-height: 28.5px;
   }
   &__title {
-    font-weight: bold;
+    letter-spacing: normal;
+    font-weight: 700;
+    letter-spacing: 1px;
   }
 }
