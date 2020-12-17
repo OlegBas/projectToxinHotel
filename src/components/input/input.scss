@@ -1,0 +1,30 @@
+.formElement {
+  &__input {
+    width: 320px;
+    border-radius: 4px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border: 1px solid $textColor-25;
+    color: $textColor-25;
+    transition: border-color 0.3s ease, color 0.3s ease;
+    background-color: #fff;
+  }
+
+  &__title {
+    font-family: $fontPrimary;
+    font-size: $textSm;
+    text-transform: uppercase;
+    line-height: 14.63px;
+    font-weight: bold;
+    color: $textColor;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__type {
+    font-weight: normal;
+    color: $textColor-50;
+  }
+}

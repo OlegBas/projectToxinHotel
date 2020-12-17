@@ -1,0 +1,14 @@
+extends ../../layouts/ui-kit
+include ../../components/input/input
+
+
+block head
+  - var title = "Элементы сайта";
+
+block content
+    main.ui-kit-page.pageFormElements
+        .container
+            .ui-kit-row
+                .ui-kit-column
+                    .item
+                        +input({label: "Text Field", type: "default"})(placeholder="Email")

@@ -1,0 +1,10 @@
+mixin input(options = {})
+  - var { label, type = ""} = options
+    .formElement
+        label.formElement__wrapper
+            div.formElement__title
+                = label
+                if type
+                    .formElement__type= type
+            - var inputClass = "formElement__input"
+            input(class= inputClass)&attributes(attributes)
