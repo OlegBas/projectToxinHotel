@@ -1,3 +1,3 @@
 // index.js
 // создание свойства класса без конструктора
-import "../styles/main.scss";
+import "../../styles/main.scss";

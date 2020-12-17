@@ -26,6 +26,39 @@ const optimization = () => {
   return configObj;
 };
 
+const isDev = process.env.NODE_ENV === "development";
+const isProd = !isDev;
+
+const getFiles = (dir, fileType) => {
+  return dir.map((folder) => {
+    const folderPath = `${PAGES_DIR}/${folder}`;
+    const folderFiles = fs.readdirSync(folderPath);
+    const pageFile = folderFiles.find((fileName) =>
+      fileName.endsWith(`.${fileType}`)
+    );
+    return pageFile;
+  });
+};
+
+const PATHS = {
+  src: path.resolve(__dirname, "src"),
+  dist: path.resolve(__dirname, "dist"),
+  assets: "assets/",
+};
+
+const PAGES_DIR = `${PATHS.src}/pages`;
+const PAGE_FOLDERS = fs.readdirSync(PAGES_DIR);
+const PAGES = getFiles(PAGE_FOLDERS, "pug");
+const ENTRY_FILES = getFiles(PAGE_FOLDERS, "js");
+
+const ENTRYS = {};
+console.log(ENTRY_FILES);
+
+ENTRY_FILES.forEach((entryFile, index) => {
+  const fileName = entryFile.split(".")[0];
+  ENTRYS[fileName] = `${PAGES_DIR}/${PAGE_FOLDERS[index]}/${entryFile}`;
+});
+
 const plugins = () => {
   const basePlugins = [
     new MiniCssExtractPlugin({
@@ -41,9 +74,9 @@ const plugins = () => {
       ],
     }),
     ...PAGES.map(
-      (page) =>
+      (page, index) =>
         new HtmlWebpackPlugin({
-          template: `${PAGES_DIR}/${page}`,
+          template: `${PAGES_DIR}/${PAGE_FOLDERS[index]}/${page}`,
           filename: `./${page.replace(/\.pug/, ".html")}`,
         })
     ),
@@ -78,26 +111,12 @@ const plugins = () => {
   return basePlugins;
 };
 
-const PATHS = {
-  src: path.resolve(__dirname, "src"),
-  dist: path.resolve(__dirname, "dist"),
-  assets: path.resolve(__dirname, "src/assets"),
-};
-
-const isDev = process.env.NODE_ENV === "development";
-const isProd = !isDev;
-
 const filename = (ext) =>
   isDev ? `[name].${ext}` : `[name].[contenthash].${ext}`;
 
-const PAGES_DIR = `${PATHS.src}/pages`;
-const PAGES = fs
-  .readdirSync(PAGES_DIR)
-  .filter((fileName) => fileName.endsWith(".pug"));
-
 module.exports = {
   context: PATHS.src,
-  entry: "./js/index.js",
+  entry: ENTRYS,
   output: {
     path: PATHS.dist,
     filename: `./assets/js/${filename("js")}`,
