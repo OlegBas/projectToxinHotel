@@ -1,5 +1,7 @@
 extends ../../layouts/ui-kit
 include ../../components/input/input
+include ../../components/selectElement/selectElement
+include ../../components/dateDropdown/dateDropdown
 
 
 block head
@@ -14,3 +16,5 @@ block content
                         +input({label: "Text Field", type: "default"})(placeholder="Email")
                     .item
                         +input({label: "Text Field", type: "Hover / Focus"})(value="This is pretty awesome")
+                    .item
+                        +selectElement({label: "Dropdown",value:"Сколько гостей"})

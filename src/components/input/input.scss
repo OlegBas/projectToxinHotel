@@ -16,6 +16,36 @@
       border: 1px solid $textColor-50;
       color: $textColor-75;
     }
+    &_icon {
+      padding-right: 36px;
+    }
+  }
+
+  &__button {
+    display: flex;
+    justify-content: flex-end;
+    border: none;
+    background-color: transparent;
+    transform: translateY(-50%);
+    transition: opacity 0.2s ease;
+    padding-right: 10px;
+    margin-top: -20px;
+    width: 100%;
+    &:hover,
+    &:focus {
+      outline: none;
+      opacity: 0.5;
+    }
+
+    &_twoview {
+      .material-icons {
+        color: $textColor-50;
+      }
+    }
+
+    i {
+      display: block;
+    }
   }
 
   &__title {

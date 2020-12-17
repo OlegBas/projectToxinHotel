@@ -1,0 +1,4 @@
+mixin selectElement(options)
+    - var { label, type = "",value} = options
+    div
+         +input({label, type},{title: "Раскрыть список", icon: "expand_more", type: "button"})(value= value) 

@@ -1,4 +1,4 @@
-mixin input(options = {})
+mixin input(options = {},attributesButton)
   - var { label, type = ""} = options
     .formElement
         label.formElement__wrapper
@@ -9,4 +9,9 @@ mixin input(options = {})
             - var inputClass = "formElement__input"
             if (type.indexOf("Hover") !== -1)
               - inputClass += " formElement__input_hovered"
+            if attributesButton
+              - inputClass += " formElement__input_icon"
             input(class= inputClass)&attributes(attributes)
+            if attributesButton
+              button.formElement__button(type= "formElement__button_twoview")
+                i.material-icons= attributesButton.icon
