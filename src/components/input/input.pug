@@ -7,4 +7,6 @@ mixin input(options = {})
                 if type
                     .formElement__type= type
             - var inputClass = "formElement__input"
+            if (type.indexOf("Hover") !== -1)
+              - inputClass += " formElement__input_hovered"
             input(class= inputClass)&attributes(attributes)
