@@ -1,0 +1,8 @@
+mixin justButton(params)
+  //- type = ["primary", "secondary"]
+  - var {name, type="primary", hrefLink} = params
+  - var className = `justButton justButton_${type}`
+  if hrefLink
+    a(class= className href= hrefLink)= name
+  else
+    button(class= className type="button")&attributes(attributes)= name

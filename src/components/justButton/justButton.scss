@@ -1,0 +1,26 @@
+.justButton {
+  font-size: $textSm;
+  font-weight: bold;
+  line-height: 1.25;
+  text-transform: uppercase;
+  background-color: transparent;
+  border: none;
+  transition: opacity 0.2s ease;
+  padding: 0;
+  &_primary {
+    color: $colorPrimary;
+  }
+  &_secondary {
+    color: $textColor-50;
+  }
+  &:hover,
+  &:focus {
+    opacity: 0.8;
+    outline: none;
+  }
+  &:disabled,
+  &_disabled {
+    color: $textColor-10;
+    cursor: initial;
+  }
+}

@@ -8,7 +8,7 @@ block head
   - var title = "Элементы сайта";
 
 block content
-    main.ui-kit-page.pageFormElements
+    main.ui-kit-page.pageFormElements 
         .container
             .ui-kit-row
                 .ui-kit-column
@@ -17,4 +17,7 @@ block content
                     .item
                         +input({label: "Text Field", type: "Hover / Focus"})(value="This is pretty awesome")
                     .item
-                        +selectElement({label: "Dropdown",value:"Сколько гостей"})
+                        +selectElement({dataSetName:"itemsFull", label: "Dropdown", name: "guestCount", placeholder: "Сколько гостей", isButtons: true, inline: false})
+                    .item
+                        +selectElement({dataSetName:"itemsFull", label: "Dropdown", name: "guestCount", placeholder: "Сколько гостей", isButtons: true, inline: false})
+                       

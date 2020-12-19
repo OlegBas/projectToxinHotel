@@ -1,4 +1,29 @@
+
+include ../justButton/justButton
+
+
 mixin selectElement(options)
-    - var { label, type = "",value} = options
-    div
-         +input({label, type},{title: "Раскрыть список", icon: "expand_more", type: "button"})(value= value) 
+    - 
+        var {dataSetName, label = "", name = "",value, required = false, placeholder = "", type = "", isButtons = false, inline = false} = options
+        var classComponentOfSelect = "selectElement superSelectElement"
+        var itemsClass = "selectElement__items"
+    if inline
+        -
+            classComponentOfSelect += " selectElement_expanded"
+            itemsClass += " selectElement__items_inline"
+  
+    div(class= classComponentOfSelect data-set-name=dataSetName)
+        +input({label, type}, {title: "Раскрыть список", icon: "expand_more", type: "button"})(placeholder= placeholder name= name required= required value= countString || "Сколько гостей")
+        div(class= itemsClass)
+            ul.selectElement__items-list
+            if isButtons
+                .selectElement__items-footer
+                    - var clearClasses = "selectElement__footer-button"
+                    if isNullElements
+                        - clearClasses = `${clearClasses} selectElement__footer-button_hide`
+                    div(class= clearClasses)
+                        +justButton({name: "Очистить", type: "secondary"})(data-action="clear-select")
+                    .selectElement__footer-button.selectElement__footer-button_right
+                        +justButton({name: "Применить"})(data-action="apply-select" disabled= isNullElements)
+
+                        

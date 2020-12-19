@@ -1,0 +1,87 @@
+.selectElement {
+  width: 100%;
+  color: $textColor;
+  font-weight: bold;
+  font-size: $textSm;
+  position: relative;
+  &_expanded {
+    .formElement__input {
+      border-color: $textColor-50;
+      outline: none;
+      border-radius: 4px 4px 0 0;
+    }
+    .selectElement__items {
+      display: block;
+    }
+  }
+  .formElement__input {
+    cursor: pointer;
+    text-overflow: ellipsis;
+    font-size: $baseSizeText;
+  }
+  &__items {
+    display: none;
+    border: 1px solid $textColor-50;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    position: absolute;
+    z-index: 1;
+    background-color: #fff;
+    width: 100%;
+    &_inline {
+      position: initial;
+      display: block;
+    }
+  }
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: uppercase;
+    padding: 6px 7px 0px 15px;
+    &:last-child {
+      padding-bottom: 7px;
+    }
+  }
+  &__items-footer {
+    padding: 13px 7px 9px 15px;
+    display: flex;
+  }
+  &__footer-button {
+    &_right {
+      margin-left: auto;
+    }
+    &_hide {
+      display: none;
+    }
+  }
+  &__item-button {
+    background-color: transparent;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: $textColor-50;
+    color: $textColor-50;
+    font-size: $textMd;
+    transition: border-color 0.2s ease, color 0.2s ease;
+    outline: none;
+    &:hover,
+    &:focus {
+      border-color: $colorPrimary;
+      color: $colorPrimary;
+    }
+    &:disabled {
+      border-color: $textColor-25;
+      color: $textColor-25;
+      cursor: initial;
+    }
+  }
+  &__item-controls {
+    width: 92px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
