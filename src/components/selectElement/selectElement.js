@@ -8,10 +8,10 @@ const $selectElements = $(".superSelectElement");
 
 function selectElement(selectEl) {
   $(selectEl).on("click", toggle);
+  let a = 1;
 
   let items = [];
   let initialItems = [];
-  let isInline = $(".selectElement__items_inline", $(selectEl)).length;
   let countPeoples = 3;
   let inputEl = $(".formElement__input", selectEl);
   let dataSetName = $(selectEl).attr("data-set-name");
@@ -27,9 +27,7 @@ function selectElement(selectEl) {
 
   addElements(data, selectEl);
 
-  if (isInline) {
-    addEventsOnButton($(selectEl));
-  }
+  addEventsOnButton($(selectEl));
 
   function addElements(data, selectEl) {
     for (let index = 0; index < data.length; index++) {
@@ -63,8 +61,6 @@ function selectElement(selectEl) {
         $(e.target)
           .closest(".selectElement")
           .addClass("selectElement_expanded");
-
-        addEventsOnButton($(e.currentTarget));
       } else {
         let classList = $(e.target).attr("class");
         if (
@@ -81,7 +77,7 @@ function selectElement(selectEl) {
 
   function addEventsOnButton(selectEl) {
     $("body").on("click", ".selectElement__item-button", handleChangeCount);
-    $("body").on(
+    $(selectEl).on(
       "click",
       ".justButton[data-action='clear-select']",
       handleClearVals
@@ -174,6 +170,9 @@ function selectElement(selectEl) {
   }
 
   function handleClearVals(e) {
+    console.log("call func");
+    a++;
+    console.log(a);
     const $liElements = $(e.currentTarget)
       .closest(".selectElement__items")
       .find(".selectElement__item");
