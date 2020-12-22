@@ -20,3 +20,9 @@ block content
                         +selectElement({dataSetName:"itemsFull", label: "Dropdown", name: "guestCount", placeholder: "Сколько гостей", isButtons: true, inline: false})
                     .item
                         +input({label: "Masked text field", type: "default"})(placeholder="ДД.ММ.ГГГГ" name="user-masks")
+                    .item   
+                        +input({label: "Subscription text field"}, {
+                            icon: "arrow_forward",
+                            type: "submit",
+                            title: "Отправить",
+                        })(type="email" placeholder="Email" size="40" name="subscribeEmail" required)

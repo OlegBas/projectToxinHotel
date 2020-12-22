@@ -13,9 +13,3 @@ $('.formElement__input[name="user-masks"]').mask("dD.mM.THDY", {
     Y: { pattern: /[0-9]/, recursive: true },
   },
 });
-
-$('.formElement__input[type="email"]').mask("email", {
-  translation: {
-    email: { pattern: /[\w@\-.+]/, recursive: true },
-  },
-});
