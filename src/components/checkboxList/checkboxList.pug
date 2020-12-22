@@ -1,0 +1,7 @@
+include ../checkbox/checkbox
+
+mixin checkboxList(list)
+  ul.checkboxList
+    for checkbox in list
+      li.checkboxList__item
+        +checkbox(checkbox)

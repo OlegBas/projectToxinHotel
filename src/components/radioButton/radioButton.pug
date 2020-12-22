@@ -1,0 +1,8 @@
+mixin radioButton(options)
+  - var {name, buttonOptions} = options;
+  - var {value, checked=false, label} = buttonOptions;
+
+  label.radioButton
+    input.visually-hidden.radioButton__input(type="radio" name= name value= value checked= checked)
+    span.radioButton__indicator
+    = label

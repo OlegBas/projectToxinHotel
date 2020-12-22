@@ -1,0 +1,8 @@
+mixin groupElements(legend)
+  if legend
+    fieldset.groupElements__group
+      legend.groupElements__group-title= legend
+      block
+  else
+    .groupElements__group
+      block

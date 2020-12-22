@@ -1,0 +1,55 @@
+.groupElements {
+  width: 325px;
+
+  &__group {
+    border: none;
+    padding: 0;
+    width: 100%;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    &-title {
+      color: $textColor;
+      margin-bottom: 16px;
+      font-size: $textSm;
+      text-transform: uppercase;
+      line-height: 14.63px;
+      font-weight: bold;
+      &::-webkit-details-marker {
+        display: none;
+      }
+      &_with-icon {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        transition: color 0.2s ease;
+        &:hover,
+        &:focus,
+        &:active {
+          color: $textColor-50;
+          outline: none;
+        }
+      }
+    }
+  }
+  &__accordion {
+    &[open] {
+      .material-icons__less {
+        display: inline;
+      }
+      .material-icons__more {
+        display: none;
+      }
+    }
+    .material-icons {
+      margin-right: 9px;
+    }
+    .material-icons__less {
+      display: none;
+    }
+  }
+  &__tongue {
+    display: none;
+  }
+}

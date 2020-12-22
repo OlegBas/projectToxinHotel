@@ -1,0 +1,13 @@
+include ../radioButton/radioButton
+
+mixin radioGroupItem(name, buttonOptions)
+  li.radioGroup__item
+    +radioButton({name, buttonOptions})
+
+mixin radioGroup(options)
+  - var {name, title, radioButtons} = options
+
+  fieldset.radioGroup
+    ul.radioGroup__list
+      for buttonOptions in radioButtons
+        +radioGroupItem(name, buttonOptions)

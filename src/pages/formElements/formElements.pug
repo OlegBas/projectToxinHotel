@@ -2,6 +2,9 @@ extends ../../layouts/ui-kit
 include ../../components/input/input
 include ../../components/selectElement/selectElement
 include ../../components/dateDropdown/dateDropdown
+include ../../components/groupElements/groupElements
+include ../../components/checkboxList/checkboxList
+include ../../components/radioGroup/radioGroup
 
 
 block head
@@ -26,3 +29,55 @@ block content
                             type: "submit",
                             title: "Отправить",
                         })(type="email" placeholder="Email" size="40" name="subscribeEmail" required)
+                    .item
+                        +selectElement({dataSetName: "roomItems",type: "default", label: "Dropdown", name: "roomsCount", placeholder: "Удобства номера", isButtons: false})
+                    .item
+                        +selectElement({dataSetName: "roomItems",type: "default", label: "Dropdown", name: "roomsCount", placeholder: "Удобства номера", isButtons: false,inline:true})
+                    .item   
+                        +selectElement({dataSetName: "itemsEmpty", label: "Dropdown", name: "guestCount", placeholder: "Сколько гостей", withButtons: true, inline: true})
+                    .item   
+                        +selectElement({dataSetName:"itemsFull", label: "Dropdown", name: "guestCount", placeholder: "Сколько гостей", withButtons: true, inline: true})
+                    .item
+                        +groupElements()
+                            details.groupElements__accordion()
+                                summary.groupElements__group-title.groupElements__group-title_with-icon Expandable checkbox list
+                                    i.material-icons.material-icons__more expand_more
+                                    i.material-icons.material-icons__less expand_less
+                                +checkboxList([
+                                    {label: "Завтрак", name: "additionally", value: "breakfast"},
+                                    {label: "Письменный стол",  name: "additionally", value: "desktop", checked: true},
+                                    {label: "Стул для кормления",  name: "additionally", value: "child-chair", checked: true},
+                                    {label: "Кроватка",  name: "additionally", value: "child-bed", checked: true},
+                                    {label: "Телевизор",  name: "additionally", value: "tv"},
+                                    {label: "Шампунь",  name: "additionally", value: "shampoo"},
+                                ])
+                    .item   
+                        +groupElements()
+                            details.groupElements__accordion(open)
+                                summary.groupElements__group-title.groupElements__group-title_with-icon Expandable checkbox list
+                                    i.material-icons.material-icons__more expand_more
+                                    i.material-icons.material-icons__less expand_less
+                                +checkboxList([
+                                    {label: "Завтрак", name: "additionally", value: "breakfast"},
+                                    {label: "Письменный стол",  name: "additionally", value: "desktop", checked: true},
+                                    {label: "Стул для кормления",  name: "additionally", value: "child-chair", checked: true},
+                                    {label: "Кроватка",  name: "additionally", value: "child-bed", checked: true},
+                                    {label: "Телевизор",  name: "additionally", value: "tv"},
+                                    {label: "Шампунь",  name: "additionally", value: "shampoo"},
+                                ])
+                    .item   
+                        +groupElements("Checkbox Buttons")
+                            +checkboxList([
+                                {label: "Можно курить", name: "conditionals", value: "allow-smoke"},
+                                {label: "Можно с питомцами", name: "conditionals", value: "allow-pets", checked: true},
+                                {label: "Можно пригласить гостей (до&nbsp;10&nbsp;человек)", name: "conditionals", value: "allow-guests", checked: true},
+                        ])
+                    .item
+                        +groupElements("Radio Buttons")
+                            +radioGroup({
+                                name: "userGender",
+                                title: "Ваш пол",
+                                radioButtons: [
+                                {label: "Мужчина", value: "man", checked: true},
+                                {label: "Женщина", value: "woman"}
+                            ]})

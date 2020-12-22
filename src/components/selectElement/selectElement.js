@@ -18,10 +18,12 @@ function selectElement(selectEl) {
   switch (dataSetName) {
     case "itemsFull":
       var data = dataForSelectElement.itemsFull;
-
       break;
-
+    case "itemsEmpty":
+      var data = dataForSelectElement.itemsEmpty;
+      break;
     default:
+      var data = dataForSelectElement.roomItems;
       break;
   }
 

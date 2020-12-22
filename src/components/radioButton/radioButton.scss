@@ -1,0 +1,45 @@
+$radioSize: 20px;
+$circleSize: calc(#{$radioSize} * 0.6);
+
+.radioButton {
+  display: flex;
+  cursor: pointer;
+  line-height: 24px;
+  &__input {
+    &:hover,
+    &:focus {
+      & + .radioButton__indicator {
+        border-color: $colorPrimary;
+      }
+    }
+    &:checked {
+      & + .radioButton__indicator {
+        &:after {
+          background: $gradientPrimary;
+          transform: translate(-50%, -50%) scale(1);
+        }
+        border-color: $colorPrimary;
+      }
+    }
+  }
+  &__indicator {
+    transition: border-color 0.5s step-end;
+    border-radius: 50%;
+    margin-right: 10px;
+    height: $radioSize;
+    min-width: $radioSize;
+    border: 1px solid $textColor-25;
+    position: relative;
+
+    &:after {
+      content: "";
+      position: absolute;
+      width: $circleSize;
+      height: $circleSize;
+      top: 50%;
+      left: 50%;
+      border-radius: 50%;
+      transition: transform 0.5s ease;
+    }
+  }
+}

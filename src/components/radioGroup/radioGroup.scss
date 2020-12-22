@@ -1,0 +1,13 @@
+@import "../radioButton/radioButton";
+
+.radioGroup {
+  border: none;
+  padding: 0;
+  margin: 0;
+  &__list {
+    display: flex;
+  }
+  &__item {
+    margin-right: 19px;
+  }
+}
