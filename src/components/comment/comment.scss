@@ -1,0 +1,25 @@
+@import "../avatar/avatar";
+@import "../likeButton/likeButton";
+
+.comment {
+  display: flex;
+  width: 713px;
+
+  &__avatar {
+    margin-bottom: 10px;
+  }
+  &__column {
+    &:first-child {
+      margin-right: 10px;
+    }
+  }
+  &__user-name {
+    font-weight: bold;
+  }
+  &__like-button {
+    text-align: center;
+  }
+  &__date {
+    margin-bottom: 10px;
+  }
+}

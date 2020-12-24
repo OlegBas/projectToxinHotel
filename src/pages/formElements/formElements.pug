@@ -14,6 +14,7 @@ include ../../components/toggle/toggle
 include ../../components/rateButton/rateButton
 include ../../components/bulletList/bulletList
 include ../../components/advantagesList/advantagesList
+include ../../components/comment/comment
 
 
 block head
@@ -139,3 +140,20 @@ block content
                             {icon: "location_city", title: "Удобство", subtitle: "Окно в каждой из спален"},
                             {},
                         ])
+                    .item
+                        +comment({
+                            userName: "Мурад Сарафанов",
+                            userAvatar: "assets/img/avatars/man.jpg",
+                            date: fiveDaysAgo,
+                            message: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И&#160;стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.",
+                            likeOptions: {
+                                count: 12,
+                                liked: true,
+                            }
+                        })
+                    .item   
+                        +groupElements("Rich Checkbox Buttons")
+                            +checkboxList([
+                                {label: "Широкий коридор", details: "Ширина коридоров в&nbsp;номере не&nbsp;менее 91&nbsp;см", name: "accesability", value: "wide-hall"},
+                                {label: "Помощник для инвалидов", details: "На&nbsp;1&nbsp;этаже вас встретит специалист и&nbsp;проводит до&nbsp;номера", name: "accesability", value: "helper"},
+                            ])
