@@ -9,6 +9,8 @@ include ../../components/button/button
 include ../../components/justButton/justButton
 include ../../components/paginator/paginator
 include ../../components/rangeSlider/rangeSlider
+include ../../components/likeButton/likeButton
+include ../../components/toggle/toggle
 
 
 block head
@@ -104,3 +106,15 @@ block content
                     .item
                         +groupElements()
                             +rangeSlider({label: "Range Slider", unit: "₽", from: 5000, to: 10000, max: 15000})
+                    .item
+                        +groupElements("Like button")
+                            .groupElements__item
+                                +likeButton({count: 2})
+                                +likeButton({count: 12, liked: true})
+                    .item   
+                        +groupElements("Toggle")
+                            .groupElements__item
+                                +toggle({label: "Получать спецпредложения", name: "allow-notifications", checked: true})
+                            .groupElements__item
+                                +toggle({label: "Получать спецпредложения", name: "allow-notifications"})
+                                

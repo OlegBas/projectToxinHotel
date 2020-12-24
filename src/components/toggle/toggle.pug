@@ -1,0 +1,7 @@
+mixin toggle(options) 
+  - var {label, details, name, value, checked = false} = options;
+
+  label.toggle
+    input.visually-hidden.toggle__input(type="checkbox" name= name checked= checked value= value)
+    span.toggle__indicator
+    = label

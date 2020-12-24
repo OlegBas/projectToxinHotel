@@ -1,0 +1,8 @@
+mixin likeButton({count=0, liked=false})
+  - var likeIcon =liked ? "favorite" : "favorite_border"
+  - var classLike = `likeButton`
+  if liked
+    - classLike = `${classLike} likeButton_active`
+  button(class= classLike type="button")
+    span.likeButton__wrapper
+      i.material-icons= likeIcon

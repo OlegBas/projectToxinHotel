@@ -1,0 +1,64 @@
+$switcher-width: 40px;
+$switcher-height: calc(#{$switcher-width} / 2);
+$switcher-padding: 3px;
+$switcher-radius: calc(#{$switcher-width} * 2);
+$circle-size: calc(#{$switcher-height} - #{$switcher-padding} * 2 - 2px);
+$circle-radius: calc(#{$circle-size} * 2);
+
+.toggle {
+  display: flex;
+  line-height: 1.5;
+  cursor: pointer;
+  &__input {
+    &:checked {
+      & + .toggle__indicator {
+        border-color: $colorPrimary;
+        &:after {
+          background: $gradientPrimary;
+          left: calc(100% - #{$switcher-padding});
+          transform: translateX(-100%);
+        }
+      }
+    }
+    &:hover {
+      & + .toggle__indicator {
+        border-color: $colorPrimary;
+      }
+    }
+    &:focus {
+      & + .toggle__indicator {
+        background-color: $colorPrimaryLight;
+      }
+    }
+    &:active {
+      & + .toggle__indicator {
+        &:after {
+          width: 50%;
+        }
+      }
+    }
+  }
+  &__indicator {
+    height: $switcher-height;
+    flex-basis: $switcher-width;
+    min-width: $switcher-width;
+    border-radius: $switcher-radius;
+    border-width: 1px;
+    border-style: solid;
+    border-color: $textColor-25;
+    position: relative;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+    margin-right: 20px;
+    &:after {
+      content: "";
+      position: absolute;
+      top: $switcher-padding;
+      bottom: $switcher-padding;
+      left: $switcher-padding;
+      width: $circle-size;
+      background-color: $textColor-25;
+      border-radius: $circle-radius;
+      transition: left 0.2s, width 0.3s, transform 0.2s;
+    }
+  }
+}
