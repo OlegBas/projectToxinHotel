@@ -12,6 +12,7 @@ include ../../components/rangeSlider/rangeSlider
 include ../../components/likeButton/likeButton
 include ../../components/toggle/toggle
 include ../../components/rateButton/rateButton
+include ../../components/bulletList/bulletList
 
 
 block head
@@ -124,3 +125,10 @@ block content
                             .groupElements__item
                                 +rateButton(4)
                                 +rateButton(5)
+                    .item
+                        +groupElements("Bullet List")
+                            +bulletList([
+                                "Нельзя с питомцами",
+                                "Без вечеринок и мероприятий",
+                                "Время прибытия — после 13:00, а выезд до 12:00"
+                            ])
