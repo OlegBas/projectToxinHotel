@@ -11,6 +11,7 @@ include ../../components/paginator/paginator
 include ../../components/rangeSlider/rangeSlider
 include ../../components/likeButton/likeButton
 include ../../components/toggle/toggle
+include ../../components/rateButton/rateButton
 
 
 block head
@@ -117,4 +118,9 @@ block content
                                 +toggle({label: "Получать спецпредложения", name: "allow-notifications", checked: true})
                             .groupElements__item
                                 +toggle({label: "Получать спецпредложения", name: "allow-notifications"})
-                                
+                    
+                    .item
+                        +groupElements("Rate button")
+                            .groupElements__item
+                                +rateButton(4)
+                                +rateButton(5)

@@ -1,0 +1,12 @@
+include ../../lib
+
+mixin rateButton(rate)
+  .rateButton
+    span.visually-hidden
+      = `${rate} `
+      +translateWord(rate, ["звезда", "звезды", "звезд"])
+      |  из 5
+    - for (var i = 0; i < 5; i++)
+      - var icon = i < rate ? "star" : "star_border";
+      span.rateButton__item
+        i.material-icons= icon
