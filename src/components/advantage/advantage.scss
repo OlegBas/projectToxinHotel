@@ -1,0 +1,14 @@
+.advantage {
+  display: flex;
+  align-items: center;
+  .material-icons {
+    font-size: 48px;
+    background: $gradientPrimary;
+    -webkit-text-fill-color: transparent;
+    margin-right: 20px;
+    -webkit-background-clip: text;
+  }
+  &__title {
+    font-weight: bold;
+  }
+}

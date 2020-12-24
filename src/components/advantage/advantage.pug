@@ -1,0 +1,7 @@
+mixin advantage(options)
+  - var {icon="", title="", subtitle=""} = options
+  .advantage
+    i.material-icons= icon
+    .advantage__description
+      p.advantage__title= title
+      = subtitle

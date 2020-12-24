@@ -13,6 +13,7 @@ include ../../components/likeButton/likeButton
 include ../../components/toggle/toggle
 include ../../components/rateButton/rateButton
 include ../../components/bulletList/bulletList
+include ../../components/advantagesList/advantagesList
 
 
 block head
@@ -132,3 +133,9 @@ block content
                                 "Без вечеринок и мероприятий",
                                 "Время прибытия — после 13:00, а выезд до 12:00"
                             ])
+                    .item
+                        +advantagesList([
+                            {icon: "insert_emoticon", title: "Комфорт", subtitle: "Шумопоглощающие стены"},
+                            {icon: "location_city", title: "Удобство", subtitle: "Окно в каждой из спален"},
+                            {},
+                        ])
