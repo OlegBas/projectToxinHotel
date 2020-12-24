@@ -5,6 +5,8 @@ include ../../components/dateDropdown/dateDropdown
 include ../../components/groupElements/groupElements
 include ../../components/checkboxList/checkboxList
 include ../../components/radioGroup/radioGroup
+include ../../components/button/button
+include ../../components/justButton/justButton
 
 
 block head
@@ -81,3 +83,16 @@ block content
                                 {label: "Мужчина", value: "man", checked: true},
                                 {label: "Женщина", value: "woman"}
                             ]})
+                    .item
+                        +groupElements("Buttons")
+                            .groupElements__item
+                                +button({name: "Click me", size: "l"})
+                                +button({name: "Click me", size: "l", hovered: true})
+                            .groupElements__item
+                                +button({name: "Click me", type: "secondary", size: "l"})
+                                +button({name: "Click me", type: "secondary", size: "l", hovered: true})
+                            .groupElements__item
+                                +justButton({name: "Click me"})
+                                +justButton({name: "Click me", type: "secondary"})
+                            .groupElements__item
+                                +button({name: "Перейти к оплате", icon: "arrow_forward", size: "l"})(type="submit")

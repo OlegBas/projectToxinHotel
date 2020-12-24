@@ -1,0 +1,17 @@
+mixin button(options)
+  - var {name, type="primary", href, icon, size="m", hovered = false} = options
+  - var nameClass = `button button_${type} button_size_${size}`
+  if hovered
+    - nameClass += " button_hovered"
+  if icon
+    - nameClass = `${nameClass} button_with_icon`
+  if href
+    a(class= nameClass href= href)
+      span.button__wrapper= name
+        if icon
+          i.material-icons= icon
+  else
+    button(class= nameClass type="button")&attributes(attributes)
+      span.button__wrapper= name
+        if icon
+          i.material-icons= icon

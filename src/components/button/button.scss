@@ -1,0 +1,65 @@
+$borderRadius: 3em;
+$borderWidth: 2px;
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $borderWidth;
+  border: none;
+  font-size: $textSm;
+  font-weight: bold;
+  line-height: 1.25;
+  text-transform: uppercase;
+  transition: background-image 0.2s ease, background-color 0.2s ease;
+  border-radius: $borderRadius;
+  background-color: $colorPrimary;
+  background-image: $gradientPrimary;
+  outline: none;
+  margin-right: 19px;
+  &:hover,
+  &:focus,
+  &_hovered {
+    background-color: $colorPrimaryLight;
+    background-image: $gradientPrimaryTransparent;
+  }
+  &:focus {
+    box-shadow: 0px 0px 3px 2px $colorPrimary;
+  }
+  &:active {
+    transform: translateY(1px);
+  }
+  &__wrapper {
+    border-radius: calc(#{$borderRadius} - #{$borderWidth});
+    width: 100%;
+    text-align: center;
+  }
+  &_primary {
+    color: #fff;
+  }
+  &_secondary {
+    color: $colorPrimary;
+    .button__wrapper {
+      background-color: #fff;
+    }
+  }
+  &_with_icon {
+    width: 100%;
+    position: relative;
+    .material-icons {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 10px;
+    }
+  }
+  &_size_m {
+    .button__wrapper {
+      padding: 0.6em 1.5em 0.7em;
+    }
+  }
+  &_size_l {
+    .button__wrapper {
+      padding: 1.04em 2.03em 1.05em;
+    }
+  }
+}

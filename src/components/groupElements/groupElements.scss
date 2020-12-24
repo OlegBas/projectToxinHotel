@@ -1,6 +1,12 @@
 .groupElements {
   width: 325px;
 
+  &__item {
+    display: flex;
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
   &__group {
     border: none;
     padding: 0;
