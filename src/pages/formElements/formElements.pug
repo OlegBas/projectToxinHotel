@@ -8,6 +8,7 @@ include ../../components/radioGroup/radioGroup
 include ../../components/button/button
 include ../../components/justButton/justButton
 include ../../components/paginator/paginator
+include ../../components/rangeSlider/rangeSlider
 
 
 block head
@@ -100,3 +101,6 @@ block content
                     .item
                         +groupElements("Pagination")
                                 +paginator({countOnPage: 12, countTotal: 180, currentPage: 1})
+                    .item
+                        +groupElements()
+                            +rangeSlider({label: "Range Slider", unit: "₽", from: 5000, to: 10000, max: 15000})

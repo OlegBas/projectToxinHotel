@@ -1,0 +1,57 @@
+.rangeSlider {
+  $topOffset: 20px;
+  $handleSize: 12px;
+  // важно чтобы не скролилось вверх при изменении значения
+  // https://github.com/IonDen/ion.rangeSlider/issues/147
+  position: relative;
+  &__heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  &__tagline {
+    font-size: $textSm;
+    text-transform: uppercase;
+    line-height: 1.25;
+    font-weight: bold;
+    color: $textColor;
+  }
+  &__caption {
+    font-size: $textSm;
+    color: $textColor-50;
+    font-feature-settings: "tnum";
+  }
+  &__description {
+    font-size: $textSm;
+    color: $textColor-50;
+  }
+  .irs--round {
+    height: 36px;
+  }
+  .irs-line {
+    top: $topOffset;
+    height: calc(#{$handleSize} / 2);
+    background-color: #fff;
+    border-radius: 3px;
+    border: 1px solid $textColor-25;
+  }
+  .irs-bar {
+    top: $topOffset;
+    height: calc(#{$handleSize} / 2);
+    background-color: transparent;
+    background: $gradientSecondary;
+  }
+  .irs-handle {
+    box-sizing: content-box;
+    top: calc(#{$topOffset} - (#{$handleSize} / 2));
+    width: $handleSize;
+    height: $handleSize;
+    border: 2px solid #fff;
+    background: $gradientSecondary;
+    border-radius: 50%;
+    box-shadow: none;
+    cursor: pointer;
+    z-index: 0;
+  }
+}
