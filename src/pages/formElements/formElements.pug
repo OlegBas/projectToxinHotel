@@ -24,7 +24,7 @@ block content
     main.ui-kit-page.pageFormElements 
         .container
             .ui-kit-row
-                .ui-kit-column
+                .ui-kit-column.ui-kit-column__width-320
                     .item
                         +input({label: "Text Field", type: "default"})(placeholder="Email")
                     .item
@@ -39,14 +39,64 @@ block content
                             type: "submit",
                             title: "Отправить",
                         })(type="email" placeholder="Email" size="40" name="subscribeEmail" required)
+                .ui-kit-column.ui-kit-column__width-320
+                    .item   
+                        +groupElements("Checkbox Buttons")
+                            +checkboxList([
+                                {label: "Можно курить", name: "conditionals", value: "allow-smoke"},
+                                {label: "Можно с питомцами", name: "conditionals", value: "allow-pets", checked: true},
+                                {label: "Можно пригласить гостей (до&nbsp;10&nbsp;человек)", name: "conditionals", value: "allow-guests", checked: true},
+                        ])
+                    .item
+                        +groupElements("Radio Buttons")
+                            +radioGroup({
+                                name: "userGender",
+                                title: "Ваш пол",
+                                radioButtons: [
+                                {label: "Мужчина", value: "man", checked: true},
+                                {label: "Женщина", value: "woman"}
+                            ]})
+                    .item   
+                        +groupElements("Toggle")
+                            .groupElements__item
+                                +toggle({label: "Получать спецпредложения", name: "allow-notifications", checked: true})
+                            .groupElements__item
+                                +toggle({label: "Получать спецпредложения", name: "allow-notifications"})
+                    .item
+                        +groupElements("Like button")
+                            .groupElements__item
+                                +likeButton({count: 2})
+                                +likeButton({count: 12, liked: true})
+                    .item
+                        +groupElements("Rate button")
+                            .groupElements__item
+                                +rateButton(4)
+                                +rateButton(5)
+                .ui-kit-column.ui-kit-column__width-320
+                    .item
+                        +groupElements()
+                            +rangeSlider({label: "Range Slider", unit: "₽", from: 5000, to: 10000, max: 15000})
+                    .item
+                        +groupElements("Buttons")
+                            .groupElements__item
+                                +button({name: "Click me", size: "l"})
+                                +button({name: "Click me", size: "l", hovered: true})
+                            .groupElements__item
+                                +button({name: "Click me", type: "secondary", size: "l"})
+                                +button({name: "Click me", type: "secondary", size: "l", hovered: true})
+                            .groupElements__item
+                                +justButton({name: "Click me"})
+                                +justButton({name: "Click me", type: "secondary"})
+                            .groupElements__item
+                                +button({name: "Перейти к оплате", icon: "arrow_forward", size: "l"})(type="submit")
+                    .item
+                        +groupElements("Pagination")
+                                +paginator({countOnPage: 12, countTotal: 180, currentPage: 1})
+                .ui-kit-column.ui-kit-column__width-320
                     .item
                         +selectElement({dataSetName: "roomItems",type: "default", label: "Dropdown", name: "roomsCount", placeholder: "Удобства номера", isButtons: false})
                     .item
                         +selectElement({dataSetName: "roomItems",type: "default", label: "Dropdown", name: "roomsCount", placeholder: "Удобства номера", isButtons: false,inline:true})
-                    .item   
-                        +selectElement({dataSetName: "itemsEmpty", label: "Dropdown", name: "guestCount", placeholder: "Сколько гостей", withButtons: true, inline: true})
-                    .item   
-                        +selectElement({dataSetName:"itemsFull", label: "Dropdown", name: "guestCount", placeholder: "Сколько гостей", withButtons: true, inline: true})
                     .item
                         +groupElements()
                             details.groupElements__accordion()
@@ -75,58 +125,19 @@ block content
                                     {label: "Телевизор",  name: "additionally", value: "tv"},
                                     {label: "Шампунь",  name: "additionally", value: "shampoo"},
                                 ])
-                    .item   
-                        +groupElements("Checkbox Buttons")
-                            +checkboxList([
-                                {label: "Можно курить", name: "conditionals", value: "allow-smoke"},
-                                {label: "Можно с питомцами", name: "conditionals", value: "allow-pets", checked: true},
-                                {label: "Можно пригласить гостей (до&nbsp;10&nbsp;человек)", name: "conditionals", value: "allow-guests", checked: true},
-                        ])
-                    .item
-                        +groupElements("Radio Buttons")
-                            +radioGroup({
-                                name: "userGender",
-                                title: "Ваш пол",
-                                radioButtons: [
-                                {label: "Мужчина", value: "man", checked: true},
-                                {label: "Женщина", value: "woman"}
-                            ]})
-                    .item
-                        +groupElements("Buttons")
-                            .groupElements__item
-                                +button({name: "Click me", size: "l"})
-                                +button({name: "Click me", size: "l", hovered: true})
-                            .groupElements__item
-                                +button({name: "Click me", type: "secondary", size: "l"})
-                                +button({name: "Click me", type: "secondary", size: "l", hovered: true})
-                            .groupElements__item
-                                +justButton({name: "Click me"})
-                                +justButton({name: "Click me", type: "secondary"})
-                            .groupElements__item
-                                +button({name: "Перейти к оплате", icon: "arrow_forward", size: "l"})(type="submit")
-                    .item
-                        +groupElements("Pagination")
-                                +paginator({countOnPage: 12, countTotal: 180, currentPage: 1})
-                    .item
-                        +groupElements()
-                            +rangeSlider({label: "Range Slider", unit: "₽", from: 5000, to: 10000, max: 15000})
-                    .item
-                        +groupElements("Like button")
-                            .groupElements__item
-                                +likeButton({count: 2})
-                                +likeButton({count: 12, liked: true})
-                    .item   
-                        +groupElements("Toggle")
-                            .groupElements__item
-                                +toggle({label: "Получать спецпредложения", name: "allow-notifications", checked: true})
-                            .groupElements__item
-                                +toggle({label: "Получать спецпредложения", name: "allow-notifications"})
                     
-                    .item
-                        +groupElements("Rate button")
-                            .groupElements__item
-                                +rateButton(4)
-                                +rateButton(5)
+                .ui-kit-column.ui-kit-column__width-320
+                    .item   
+                        +selectElement({dataSetName: "itemsEmpty", label: "Dropdown", name: "guestCount", placeholder: "Сколько гостей", withButtons: true, inline: true})
+                    .item   
+                        +groupElements("Rich Checkbox Buttons")
+                            +checkboxList([
+                                {label: "Широкий коридор", details: "Ширина коридоров в&nbsp;номере не&nbsp;менее 91&nbsp;см", name: "accesability", value: "wide-hall"},
+                                {label: "Помощник для инвалидов", details: "На&nbsp;1&nbsp;этаже вас встретит специалист и&nbsp;проводит до&nbsp;номера", name: "accesability", value: "helper"},
+                            ])
+                .ui-kit-column.ui-kit-column__width-320
+                    .item   
+                        +selectElement({dataSetName:"itemsFull", label: "Dropdown", name: "guestCount", placeholder: "Сколько гостей", withButtons: true, inline: true})
                     .item
                         +groupElements("Bullet List")
                             +bulletList([
@@ -134,12 +145,14 @@ block content
                                 "Без вечеринок и мероприятий",
                                 "Время прибытия — после 13:00, а выезд до 12:00"
                             ])
+                .ui-kit-column
                     .item
                         +advantagesList([
                             {icon: "insert_emoticon", title: "Комфорт", subtitle: "Шумопоглощающие стены"},
                             {icon: "location_city", title: "Удобство", subtitle: "Окно в каждой из спален"},
                             {},
                         ])
+                .ui-kit-column
                     .item
                         +comment({
                             userName: "Мурад Сарафанов",
@@ -151,9 +164,16 @@ block content
                                 liked: true,
                             }
                         })
-                    .item   
-                        +groupElements("Rich Checkbox Buttons")
-                            +checkboxList([
-                                {label: "Широкий коридор", details: "Ширина коридоров в&nbsp;номере не&nbsp;менее 91&nbsp;см", name: "accesability", value: "wide-hall"},
-                                {label: "Помощник для инвалидов", details: "На&nbsp;1&nbsp;этаже вас встретит специалист и&nbsp;проводит до&nbsp;номера", name: "accesability", value: "helper"},
-                            ])
+                    
+                   
+                    
+                    
+                    
+                   
+                    
+                    
+                    
+                    
+                    
+                    
+                    
