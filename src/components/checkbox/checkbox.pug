@@ -6,6 +6,6 @@ mixin checkbox(checkboxOptions)
     .checkbox__indicator
       .checkbox__mark
     .checkbox__description
-      != label
+      = label
       if details
-        p.checkbox__details!= details
+        p.checkbox__details= details
