@@ -1,4 +1,3 @@
-import $ from "jquery";
 import "jquery-mask-plugin";
 
 $('.formElement__input[name="user-masks"]').mask("dD.mM.THDY", {

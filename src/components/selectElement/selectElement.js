@@ -1,4 +1,3 @@
-import $ from "jquery";
 let dataForSelectElement = require("./data");
 
 const $selectElements = $(".superSelectElement");

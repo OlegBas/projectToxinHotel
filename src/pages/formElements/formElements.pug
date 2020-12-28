@@ -15,6 +15,7 @@ include ../../components/rateButton/rateButton
 include ../../components/bulletList/bulletList
 include ../../components/advantagesList/advantagesList
 include ../../components/comment/comment
+include ../../components/dateDropdown/dateDropdown
 
 
 block head
@@ -39,6 +40,13 @@ block content
                             type: "submit",
                             title: "Отправить",
                         })(type="email" placeholder="Email" size="40" name="subscribeEmail" required)
+                    .item
+                         +dateDropdown({split: true, startLabel: "Date dropdown", endLabel: "Date dropdown", end: new Date(2020, 7, 23)})
+                    .item
+                        +dateDropdown({label: "Filter date dropdown", start: new Date(2020, 7, 19), end: new Date(2020, 7, 23)})
+
+          
+        
                 .ui-kit-column.ui-kit-column__width-320
                     .item   
                         +groupElements("Checkbox Buttons")
@@ -92,6 +100,7 @@ block content
                     .item
                         +groupElements("Pagination")
                                 +paginator({countOnPage: 12, countTotal: 180, currentPage: 1})
+            .ui-kit-row
                 .ui-kit-column.ui-kit-column__width-320
                     .item
                         +selectElement({dataSetName: "roomItems",type: "default", label: "Dropdown", name: "roomsCount", placeholder: "Удобства номера", isButtons: false})
@@ -125,16 +134,15 @@ block content
                                     {label: "Телевизор",  name: "additionally", value: "tv"},
                                     {label: "Шампунь",  name: "additionally", value: "shampoo"},
                                 ])
-                    
                 .ui-kit-column.ui-kit-column__width-320
-                    .item   
-                        +selectElement({dataSetName: "itemsEmpty", label: "Dropdown", name: "guestCount", placeholder: "Сколько гостей", withButtons: true, inline: true})
-                    .item   
-                        +groupElements("Rich Checkbox Buttons")
-                            +checkboxList([
-                                {label: "Широкий коридор", details: "Ширина коридоров в&nbsp;номере не&nbsp;менее 91&nbsp;см", name: "accesability", value: "wide-hall"},
-                                {label: "Помощник для инвалидов", details: "На&nbsp;1&nbsp;этаже вас встретит специалист и&nbsp;проводит до&nbsp;номера", name: "accesability", value: "helper"},
-                            ])
+                        .item   
+                            +selectElement({dataSetName: "itemsEmpty", label: "Dropdown", name: "guestCount", placeholder: "Сколько гостей", withButtons: true, inline: true})
+                        .item   
+                            +groupElements("Rich Checkbox Buttons")
+                                +checkboxList([
+                                    {label: "Широкий коридор", details: "Ширина коридоров в&nbsp;номере не&nbsp;менее 91&nbsp;см", name: "accesability", value: "wide-hall"},
+                                    {label: "Помощник для инвалидов", details: "На&nbsp;1&nbsp;этаже вас встретит специалист и&nbsp;проводит до&nbsp;номера", name: "accesability", value: "helper"},
+                                ])
                 .ui-kit-column.ui-kit-column__width-320
                     .item   
                         +selectElement({dataSetName:"itemsFull", label: "Dropdown", name: "guestCount", placeholder: "Сколько гостей", withButtons: true, inline: true})
@@ -144,7 +152,8 @@ block content
                                 "Нельзя с питомцами",
                                 "Без вечеринок и мероприятий",
                                 "Время прибытия — после 13:00, а выезд до 12:00"
-                            ])
+                            ])     
+            .ui-kit-row
                 .ui-kit-column
                     .item
                         +advantagesList([

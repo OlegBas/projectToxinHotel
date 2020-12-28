@@ -73,6 +73,10 @@ const plugins = () => {
         },
       ],
     }),
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery",
+    }),
     ...PAGES.map(
       (page, index) =>
         new HtmlWebpackPlugin({

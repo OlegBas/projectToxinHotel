@@ -19,6 +19,18 @@
 .item {
   margin-bottom: 21px;
 }
+
+.ui-kit-column:nth-child(2) {
+  margin-left: 55px;
+}
+
+.ui-kit-column:nth-child(3) {
+  margin-right: -20px;
+}
+
+.ui-kit-column:last-child {
+  margin-left: 0;
+}
 .ui-kit-column__width-320 {
   width: 320px;
 }
