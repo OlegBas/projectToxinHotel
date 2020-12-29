@@ -31,7 +31,7 @@ block content
                     .item
                         +input({label: "Text Field", type: "Hover / Focus"})(value="This is pretty awesome")
                     .item
-                        +selectElement({dataSetName:"itemsFull", label: "Dropdown", name: "guestCount", placeholder: "Сколько гостей", isButtons: true, inline: false})
+                        +selectElement({dataSetName:"itemsEmpty", label: "Dropdown", name: "guestCount", placeholder: "Сколько гостей", withButtons: true, inline: false})
                     .item
                         +input({label: "Masked text field", type: "default"})(placeholder="ДД.ММ.ГГГГ" name="user-masks")
                     .item   
@@ -145,7 +145,7 @@ block content
                                 ])
                 .ui-kit-column.ui-kit-column__width-320
                     .item   
-                        +selectElement({dataSetName:"itemsFull", label: "Dropdown", name: "guestCount", placeholder: "Сколько гостей", withButtons: true, inline: true})
+                        +selectElement({dataSetName:"itemsDefault", label: "Dropdown", name: "guestCount", placeholder: "Сколько гостей", withButtons: true, inline: true})
                     .item
                         +groupElements("Bullet List")
                             +bulletList([

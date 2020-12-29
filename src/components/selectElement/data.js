@@ -14,6 +14,11 @@ let data = {
     { title: "Кровати", count: 2 },
     { title: "Ванные комнаты", count: 0 },
   ],
+  itemsDefault: [
+    { title: "Взрослые", count: 2, typeOfData: "Гости" },
+    { title: "Дети", count: 1, typeOfData: "Гости" },
+    { title: "Младенцы", count: 0 },
+  ],
 };
 
 module.exports = data;

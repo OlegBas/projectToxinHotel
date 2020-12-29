@@ -25,11 +25,6 @@ mixin dateDropdown(options)
     - var periodDateString = `${start.getDate()} ${monthes[start.getMonth()]} – ${end.getDate()} ${monthes[end.getMonth()]}`
 
   -
-    var dropdownButton = {
-      icon: "expand_more",
-      type: "button",
-      title: "Показать календарь",
-    }
     //Формируем массив объектов для блока input. Если split (вывод двух полей для выбора даты)
     var inputsData = split
       ? [{label: startLabel, value: startDateString}, {label: endLabel, value: endDateString}]

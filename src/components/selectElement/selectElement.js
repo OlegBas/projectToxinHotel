@@ -7,19 +7,24 @@ const $selectElements = $(".superSelectElement");
 
 function selectElement(selectEl) {
   $(selectEl).on("click", toggle);
-  let a = 1;
 
   let items = [];
   let initialItems = [];
-  let countPeoples = 3;
+  let countPeoples = 0;
   let inputEl = $(".formElement__input", selectEl);
   let dataSetName = $(selectEl).attr("data-set-name");
   switch (dataSetName) {
     case "itemsFull":
       var data = dataForSelectElement.itemsFull;
+      countPeoples = 4;
       break;
     case "itemsEmpty":
       var data = dataForSelectElement.itemsEmpty;
+      countPeoples = 0;
+      break;
+    case "itemsDefault":
+      var data = dataForSelectElement.itemsDefault;
+      countPeoples = 3;
       break;
     default:
       var data = dataForSelectElement.roomItems;
@@ -89,6 +94,8 @@ function selectElement(selectEl) {
       handleApplyVals
     );
 
+    verifyButtons($(".selectElement__items", selectEl), items);
+
     if (initialItems.length) {
       items = initialItems;
       verifyButtons($(".selectElement__items", selectEl), items);
@@ -137,13 +144,14 @@ function selectElement(selectEl) {
       .closest(".selectElement__items")
       .find('.justButton[data-action="apply-select"]')
       .parent();
-
+    console.log(countPeoples);
     if (countPeoples === 0) {
       clearButton.addClass("selectElement__footer-button_hide");
-      applyButton.addClass("selectElement__footer-button_hide");
+      applyButton.find("button").attr("disabled", true);
     } else {
       clearButton.removeClass("selectElement__footer-button_hide");
       applyButton.removeClass("selectElement__footer-button_hide");
+      applyButton.find("button").attr("disabled", false);
     }
   }
 
@@ -171,9 +179,6 @@ function selectElement(selectEl) {
   }
 
   function handleClearVals(e) {
-    console.log("call func");
-    a++;
-    console.log(a);
     const $liElements = $(e.currentTarget)
       .closest(".selectElement__items")
       .find(".selectElement__item");
@@ -194,6 +199,7 @@ function selectElement(selectEl) {
   }
 
   function handleApplyVals(e) {
+    console.log(3);
     const countData = getCountData(items);
     const countValue = getCountString(countData);
     $(e.target)
@@ -202,6 +208,10 @@ function selectElement(selectEl) {
       .val(countValue);
     initialItems = items;
   }
+
+  const countData = getCountData(items);
+  const countValue = getCountString(countData);
+  $(selectEl).find(".formElement__input").val(countValue);
 
   function getCountData(items) {
     const countData = [

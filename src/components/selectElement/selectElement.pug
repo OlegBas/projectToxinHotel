@@ -4,7 +4,7 @@ include ../justButton/justButton
 
 mixin selectElement(options)
     - 
-        var {dataSetName, label = "", name = "",value, required = false, placeholder = "", type = "", isButtons = false, inline = false} = options
+        var {dataSetName, label = "", name = "",value, required = false, placeholder = "", type = "", withButtons = false, inline = false} = options
         var classComponentOfSelect = "selectElement superSelectElement"
         var itemsClass = "selectElement__items"
     if inline
@@ -16,7 +16,7 @@ mixin selectElement(options)
         +input({label, type}, {title: "Раскрыть список", icon: "expand_more", type: "button"})(placeholder= placeholder name= name required= required value= countString || "Сколько гостей")
         div(class= itemsClass)
             ul.selectElement__items-list
-            if isButtons
+            if withButtons
                 .selectElement__items-footer
                     - var clearClasses = "selectElement__footer-button"
                     if isNullElements

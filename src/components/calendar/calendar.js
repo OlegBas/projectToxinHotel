@@ -1,6 +1,5 @@
 import "air-datepicker";
 import "air-datepicker/dist/css/datepicker.min.css";
-// import '../simple-button/simple-button.scss'; // - если на странице не будет кнопок то и стили для кнопок календаря не подтянутся
 
 const datepickers = $(".calendar");
 [...datepickers].forEach((datepicker) => {
@@ -59,8 +58,8 @@ function initCalendar(datepickerArea) {
   const handleApplyDates = (dp) => {
     //получаем количество инпутов
     const dpInputs = dp.$datepicker
-      .closest(".date-dropdown")
-      .find(".date-dropdown__input");
+      .closest(".dateDropdown")
+      .find(".dateDropdown__input");
     //Если число инпутов = 2, перебираем массив выбранных  дат
     if (dpInputs.length === 2) {
       //Устанавливаем выбранные пользователем даты в поля инпутов
@@ -76,7 +75,7 @@ function initCalendar(datepickerArea) {
 
   const toggleButtonsState = (dp) => {
     const applyButton = dp.$datepicker.find(
-      '.simple-button--primary[data-action="apply"]'
+      '.justButton_primary[data-action="apply"]'
     );
     const clearButton = dp.$datepicker.find(
       '.datepicker--button[data-action="clear"]'
@@ -89,9 +88,9 @@ function initCalendar(datepickerArea) {
     }
 
     if (dp.selectedDates.length === 0) {
-      clearButton.addClass("simple-button--disabled");
+      clearButton.addClass("justButton_disabled");
     } else {
-      clearButton.removeClass("simple-button--disabled");
+      clearButton.removeClass("justButton_disabled");
     }
   };
   // Функция обратного вызова при выборе даты.
@@ -122,8 +121,8 @@ function initCalendar(datepickerArea) {
 
   const readInputs = (dp) => {
     const dpInputs = dp.$datepicker
-      .closest(".date-dropdown")
-      .find(".date-dropdown__input");
+      .closest(".dateDropdown")
+      .find(".dateDropdown__input");
     const arrivalDate = dpInputs.eq(0).val();
     const departureDate = dpInputs.eq(1).val();
     if (arrivalDate || departureDate) {
@@ -135,9 +134,7 @@ function initCalendar(datepickerArea) {
 
   const addApplyButton = (dp) => {
     if (
-      !$(datepickerArea)
-        .find('.simple-button--primary[data-action="apply"]')
-        .html()
+      !$(datepickerArea).find('.justButton_primary[data-action="apply"]').html()
     ) {
       //selectedDates - массив выбранных дат
       const isDisabledApplyButton = dp.selectedDates.length < 2;
@@ -146,21 +143,21 @@ function initCalendar(datepickerArea) {
       const clearButton = $(datepickerArea).find(
         '.datepicker--button[data-action="clear"]'
       );
-      clearButton.addClass("simple-button simple-button--secondary");
+      clearButton.addClass("justButton justButton_secondary");
 
       //Добавляем класс к кнопке очистки в зависимости от ее настройки
       if (isDisabledClearButton) {
-        clearButton.addClass("simple-button--disabled");
+        clearButton.addClass("justButton_disabled");
       } else {
-        clearButton.removeClass("simple-button--disabled");
+        clearButton.removeClass("justButton_disabled");
       }
 
-      const applyButton = `<button class="simple-button simple-button--primary" data-action="apply" type="button" disabled=${isDisabledApplyButton}>Применить</button>`;
+      const applyButton = `<button class="justButton justButton_primary" data-action="apply" type="button" disabled=${isDisabledApplyButton}>Применить</button>`;
       //Добавляем кнопку "Применить"
       $(datepickerArea).find(".datepicker--buttons").append(applyButton);
 
       $(datepickerArea)
-        .find('.simple-button--primary[data-action="apply"]')
+        .find('.justButton_primary[data-action="apply"]')
         .on("click", (event) => {
           handleApplyDates(dp); //Вешаем обработчик клика на кнопку
         });
