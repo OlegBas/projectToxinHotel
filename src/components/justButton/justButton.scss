@@ -24,4 +24,7 @@
     color: $textColor-10;
     cursor: initial;
   }
+  &:last-child {
+    margin-right: 0;
+  }
 }
