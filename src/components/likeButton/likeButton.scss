@@ -6,6 +6,7 @@
   color: $textColor-25;
   outline: none;
   border-radius: 50px;
+  margin-right: 10px;
   transition: background-color 0.2s ease, background-image 0.2s ease;
   &_active {
     background-color: $colorPrimary;

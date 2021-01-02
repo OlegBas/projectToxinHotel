@@ -7,7 +7,7 @@ $borderRadius: 22px;
   border: none;
   font-size: $textSm;
   font-weight: bold;
-  line-height: 14.63px;
+  line-height: 10.63px;
   text-transform: uppercase;
   transition: background-image 0.2s ease, background-color 0.2s ease;
   border-radius: $borderRadius;
@@ -57,7 +57,10 @@ $borderRadius: 22px;
   }
   &_size_l {
     .button__wrapper {
-      padding: 12.53px 24.36px;
+      padding: 15px 19.21px;
     }
+  }
+  &:last-child {
+    margin-right: 0;
   }
 }

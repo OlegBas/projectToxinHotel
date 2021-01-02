@@ -1,5 +1,6 @@
 include ../calendar/calendar
 
+
 mixin dateDropdown(options)
   //С помощью операции деструктуризации определим переменные на основе параметра options
   - var {start, end, startLabel= "Прибытие", endLabel= "Выезд", label= "Даты пребывания в отеле", split = false} = options
@@ -29,14 +30,16 @@ mixin dateDropdown(options)
     var inputsData = split
       ? [{label: startLabel, value: startDateString}, {label: endLabel, value: endDateString}]
       : [{label: label, value: periodDateString}]
-
+  script(src='./assets/js/func.js')
   .dateDropdown.jsDateDropdown
     //Выводи элементы для выбора дат из массива объектов
     for inputDataItem, index in inputsData
       //Добавляем класс dateDropdown__item--gap-m только первому элементу
       //Вычисляем последний элемент index === inputsData.length - 1
       //Т.к нумерация элементов в массиве с 0, то inputsData.length - 1
-      .dateDropdown__item(class= (index === inputsData.length - 1) ? "" : "dateDropdown__item--gap-m")
+
+
+      .dateDropdown__item(class= (index === inputsData.length - 1) ? "" : "dateDropdown__item_pad")
         label.dateDropdown__wrapper
           .dateDropdown__label= inputDataItem.label
           .dateDropdown__input-wrapper

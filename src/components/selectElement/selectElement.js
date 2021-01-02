@@ -147,7 +147,7 @@ function selectElement(selectEl) {
     console.log(countPeoples);
     if (countPeoples === 0) {
       clearButton.addClass("selectElement__footer-button_hide");
-      applyButton.find("button").attr("disabled", true);
+      applyButton.find("button").attr("disabled", false);
     } else {
       clearButton.removeClass("selectElement__footer-button_hide");
       applyButton.removeClass("selectElement__footer-button_hide");
