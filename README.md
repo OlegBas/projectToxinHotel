@@ -4,9 +4,11 @@
 
 ## Команды для установки
 
-#### `npm i` – установить зависимости проекта
+#### npm i – установить зависимости проекта
 
-#### `npm run dev` – запуск devServer на http://localhost:9000/
+#### npm run dev – запуск devServer на http://localhost:9000/
+
+#### `npm run deploy` – выгрузить итоговую сборку проекта на github.pages.io
 
 ## Используемый стек технологий
 
@@ -19,4 +21,4 @@
 
 ## Демонстрация верстки
 
-[просмотр проекта онлайн] (https://.github.io//demo.html)
+[просмотр проекта онлайн] (https://olegbas.github.io/projectToxinHotel/)
