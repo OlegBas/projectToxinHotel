@@ -20,11 +20,11 @@
   @if $srcWoff {
     src: url($srcWoff) format("woff");
   }
-  @if $srcWoff2 {
-    src: url($srcWoff2) format("woff2");
-  }
   @if $srcSvg {
     src: url($srcSvg) format("svg");
+  }
+  @if $srcWoff2 {
+    src: url($srcWoff2) format("woff2");
   }
 
   font-weight: $fontStyle;
