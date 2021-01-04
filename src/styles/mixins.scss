@@ -30,3 +30,10 @@
   font-weight: $fontStyle;
   font-style: $fontWeight;
 }
+
+@mixin flex($alignItems, $justifyContent: null, $flexDirection: null) {
+  display: flex;
+  align-items: $alignItems;
+  justify-content: $justifyContent;
+  flex-direction: $flexDirection;
+}

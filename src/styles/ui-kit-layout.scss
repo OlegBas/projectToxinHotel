@@ -10,8 +10,7 @@
   margin-top: 34px;
 }
 .ui-kit-row {
-  display: flex;
-  justify-content: space-between;
+  @include flex(null, space-between);
   flex-wrap: wrap;
   margin-bottom: 100px;
 }

@@ -1,6 +1,5 @@
 .rateButton {
-  display: flex;
-  align-items: center;
+  @include flex(center);
   color: $colorPrimary;
   &__item {
     display: flex;

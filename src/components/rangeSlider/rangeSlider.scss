@@ -4,9 +4,7 @@
   width: 266px;
   position: relative;
   &__heading {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include flex(center, space-between);
     width: 100%;
   }
   &__tagline {

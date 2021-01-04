@@ -1,8 +1,7 @@
 .list-colors {
   &__item {
-    display: flex;
     margin-bottom: 20px;
-    align-items: center;
+    @include flex(center);
   }
   &__block {
     width: 70px;

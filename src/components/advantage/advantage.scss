@@ -1,6 +1,5 @@
 .advantage {
-  display: flex;
-  align-items: center;
+  @include flex(center);
   .material-icons {
     font-size: 48px;
     background: $gradientPrimary;
@@ -10,5 +9,6 @@
   }
   &__title {
     font-weight: bold;
+    line-height: 24px;
   }
 }

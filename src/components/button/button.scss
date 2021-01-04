@@ -1,8 +1,6 @@
 $borderRadius: 22px;
 .button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flex(center, center);
   padding: 2px;
   border: none;
   font-size: $textSm;
@@ -57,7 +55,7 @@ $borderRadius: 22px;
   }
   &_size_l {
     .button__wrapper {
-      padding: 15px 19.21px;
+      padding: 15px 17.21px;
     }
   }
   &:last-child {

@@ -59,8 +59,7 @@
     }
   }
   &__button {
-    display: flex;
-    align-items: center;
+    @include flex(center);
     padding: 0;
     font-size: $textLg;
     border: none;

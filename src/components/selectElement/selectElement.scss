@@ -35,9 +35,7 @@
     }
   }
   &__item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include flex(center, space-between);
     text-transform: uppercase;
     padding: 6px 7px 0px 15px;
     &:last-child {
@@ -81,8 +79,6 @@
   }
   &__item-controls {
     width: 92px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include flex(center, space-between);
   }
 }

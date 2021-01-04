@@ -22,9 +22,7 @@
     }
   }
   &__wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex(center, center);
     background-color: #fff;
     padding: 4px 10px 3px 4px;
     border-radius: 50px;

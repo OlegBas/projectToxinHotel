@@ -1,7 +1,6 @@
 .formElement {
   &__wrapper {
-    display: flex;
-    flex-direction: column;
+    @include flex(null, null, column);
   }
   &__input {
     width: 100%;
@@ -58,8 +57,7 @@
     font-weight: bold;
     color: $textColor;
     margin-bottom: 5px;
-    display: flex;
-    justify-content: space-between;
+    @include flex(null, space-between);
   }
   &__type {
     font-weight: normal;
