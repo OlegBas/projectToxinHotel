@@ -41,8 +41,8 @@ header.header
       if user
         .header__user= user
       else
-        ul.header__user-navigation
-          li.user-navigation__item
+        ul.header__userNavigation
+          li.userNavigation__item
             +button({name: "Войти", type: "secondary", href: "signin.html"})
-          li.user-navigation__item
+          li.userNavigation__item
             +button({name: "Зарегистрироваться", href: "registration.html"})
