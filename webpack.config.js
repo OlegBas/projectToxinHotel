@@ -149,7 +149,20 @@ module.exports = {
       //Sass
       {
         test: /\.scss$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+        use: [
+          MiniCssExtractPlugin.loader,
+          "css-loader",
+          {
+            loader: "postcss-loader",
+            options: {
+              postcssOptions: {
+                config: path.resolve(__dirname, "./postscss.config.js"),
+              },
+              sourceMap: true,
+            },
+          },
+          "sass-loader",
+        ],
       },
       // изображения
       {

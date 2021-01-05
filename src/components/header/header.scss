@@ -5,7 +5,7 @@
   position: sticky; //Todo warning
   top: 0;
   &__navigation {
-    padding: 1.0714em 0; //Todo warning
+    // padding: 1.0714em 0; //Todo warning
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -19,13 +19,13 @@
     flex-wrap: wrap;
   }
   &__blockNavigation {
-    margin-left: auto;
-    margin-right: 0.7143em; //Todo warning
+    margin-left: 284.31px;
+    margin-right: 20px; //Todo warning
     color: $textColor-50;
   }
-  .site-navigation {
+  .blockNavigation {
     &__item {
-      padding: 0 0.7143em; //Todo warning
+      padding-right: 20px; //Todo warning
       position: relative;
       &_active {
         font-weight: bold;
