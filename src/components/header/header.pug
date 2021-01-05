@@ -1,0 +1,20 @@
+include ../button/button
+
+-
+  var itemsOfNav = [
+    { title: "О нас", href: "" },
+    { title: "Услуги", href: "" },
+    { title: "Вакансии", href: "" },
+    { title: "Новости", href: "" },
+    { title: "Соглашения", href: "" },
+  ]
+
+if currentPage
+  -
+    itemsOfNav.forEach((item) => {
+      if (item.title === currentPage) {
+        item.active = true
+      } else {
+        item.active = false
+      }
+    })
