@@ -3,10 +3,10 @@ include ../button/button
 -
   var itemsOfNav = [
     { title: "О нас", href: "" },
-    { title: "Услуги", href: "" },
+    { title: "Услуги", href: "" ,children:[]},
     { title: "Вакансии", href: "" },
     { title: "Новости", href: "" },
-    { title: "Соглашения", href: "" },
+    { title: "Соглашения", href: "",children:[] },
   ]
 
 if currentPage
@@ -18,3 +18,31 @@ if currentPage
         item.active = false
       }
     })
+
+mixin getNavigatiOnItem(itemOfNav)
+  li(class= itemOfNav.active ? "blockNavigation__item jsBlockNavigation__item blockNavigation__item_active" : "blockNavigation__item jsBlockNavigation__item")
+    if itemOfNav.active || itemOfNav.children
+      .blockNavigation__itemLink= itemOfNav.title
+        if itemOfNav.children
+          i.material-icons expand_more
+    else
+      a.blockNavigation__itemLink(href= itemOfNav.href)= itemOfNav.title
+
+mixin getNavigation(navItems)
+  ul.header__blockNavigation.blockNavigation
+    for itemOfNav in itemsOfNav
+      +getNavigatiOnItem(itemOfNav)
+
+header.header
+  .container
+    nav.header__navigation
+      include ../logo/logo
+      +getNavigation(navItems)
+      if user
+        .header__user= user
+      else
+        ul.header__user-navigation
+          li.user-navigation__item
+            +button({name: "Войти", type: "secondary", href: "signin.html"})
+          li.user-navigation__item
+            +button({name: "Зарегистрироваться", href: "registration.html"})
