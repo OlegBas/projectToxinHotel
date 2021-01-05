@@ -5,13 +5,11 @@
   position: sticky; //Todo warning
   top: 0;
   &__navigation {
-    // padding: 1.0714em 0; //Todo warning
+    padding: 26px 0; //Todo warning
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-  }
-  &__navigationWrapper {
-    flex-direction: column;
+    justify-content: space-between;
   }
   &__blockNavigation,
   &__userNavigation {
@@ -19,14 +17,13 @@
     flex-wrap: wrap;
   }
   &__blockNavigation {
-    margin-left: 284.31px;
+    margin-left: auto;
     margin-right: 20px; //Todo warning
     color: $textColor-50;
   }
   .blockNavigation {
     &__item {
       padding-right: 20px; //Todo warning
-      position: relative;
       &_active {
         font-weight: bold;
         color: $textColor-75;
@@ -35,10 +32,16 @@
         }
       }
     }
+    &__item:last-child {
+      padding-right: 0;
+    }
     &__itemLink {
       transition: color 0.2s ease;
       display: flex;
       align-items: flex-end;
+      line-height: 25px;
+      color: $textColor-50;
+      font-family: $fontPrimary;
       cursor: pointer;
       &:hover {
         color: $textColor-75;
