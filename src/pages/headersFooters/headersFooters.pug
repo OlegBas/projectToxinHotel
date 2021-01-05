@@ -1,0 +1,20 @@
+extends ../../layouts/ui-kit
+
+block head
+  - var title = "Шапки и подвалы сайта";
+
+
+block content
+  main.ui-kit-page
+    block content
+      .ui-kit-page__item.ui-kit-page__item_big-gap
+        - var currentPage = "О нас"
+        include ../../components/header/header
+      .ui-kit-page__item.ui-kit-page__item_big-gap
+        - var user = "Юлий Цезарь"
+        include ../../components/header/header
+      .ui-kit-page__item.ui-kit-page__item_big-gap
+        include ../../components/footer/footer
+      .ui-kit-page__item.ui-kit-page__item_big-gap
+        - var forTablet = true
+        include ../../components/footer/footer
