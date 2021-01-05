@@ -1,0 +1,18 @@
+-
+  var socialsItems = [
+    { title: "Твиттер", href: "https://twitter.com", icon: "fa-twitter" },
+    { title: "Фэйсбук", href: "https://www.facebook.com", icon: "fa-facebook-square" },
+    { title: "Инстаграм", href: "https://www.instagram.com", icon: "fa-instagram" },
+  ]
+
+mixin getSocialItem(social)
+  li.socials__item
+    a.socials__itemLink(href= social.href target="_blank" rel="noopener noreferrer")
+      i.fab(class= social.icon)
+
+mixin getSocials(socials)
+  ul.socials
+    for socialItem in socials
+      +getSocialItem(socialItem)
+
++getSocials(socialsItems)

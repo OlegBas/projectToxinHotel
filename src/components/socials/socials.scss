@@ -1,0 +1,21 @@
+.socials {
+  display: flex;
+  align-items: center;
+  color: $colorPrimary;
+  &__item {
+    margin-left: 23px;
+    transition: transform 0.2s ease;
+    &:hover {
+      transform: scale(1.2);
+    }
+    &:visited {
+      color: $colorSecondary;
+    }
+  }
+  &__itemLink {
+    font-size: 24px;
+    background: $gradientPrimary;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}

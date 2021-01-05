@@ -1,0 +1,15 @@
+block siteMap
+
+mixin getSiteMapListItem(siteMapListItem)
+  li.siteMap__listItem
+    a.siteMap__itemLink(href= siteMapListItem.href)= siteMapListItem.title
+
+mixin getSiteMapList(siteMapList)
+  .siteMap__group
+    h3.siteMap__title=siteMapList.title
+    ul.siteMap__list
+      for child in siteMapList.children
+        +getSiteMapListItem(child)
+
+for siteMapItem in siteMapItems
+  +getSiteMapList(siteMapItem)

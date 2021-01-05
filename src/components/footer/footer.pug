@@ -29,9 +29,32 @@ block siteMap
         ],
       },
     ]
--
-  var subscribeButton = {
+
+
+block footer
+- var footerClass = "footer"
+if isUnderlined
+  - footerClass = `${footerClass} footer__underlined`
+if forTablet
+  - footerClass = `${footerClass} footer_tabletWidth`
+footer(class= footerClass)
+  section.footer__section.footer__section_wide
+    .container
+      .siteInfo
+        include ../logo/logo
+        p.siteInfo__description Бронирование номеров в&nbsp;лучшем отеле 2019 года по&nbsp;версии ассоциации &laquo;Отельные взгляды&raquo;
+      nav.siteMap
+        include ../siteMap/siteMap
+        .siteMap__group
+          h3.siteMap__title Подписка
+          p.siteMap__text Получайте специальные предложения и новости сервиса
+          form.siteMap__form(action="https://myrusakov.ru/" method="post")
+            +input({}, {
     icon: "arrow_forward",
     type: "submit",
     title: "Отправить",
-  }
+  })(type="email" placeholder="Email" size="35" name="subscribeEmail" required)
+  section.footer__section.footer__section_narrow
+    .container
+      p.footer__copyright Copyright &#169; 2018 Toxin отель. Все права зачищены.
+      include ../socials/socials
