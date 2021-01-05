@@ -1,0 +1,37 @@
+include ../input/input
+block siteMap
+  -
+    var siteMapItems = [
+      {
+        title: "Навигация",
+        children: [
+          { title: "О нас", href: "javascript:void(0)" },
+          { title: "Новости", href: "javascript:void(0)" },
+          { title: "Служба поддержки", href: "javascript:void(0)" },
+          { title: "Услуги", href: "javascript:void(0)" },
+        ],
+      },
+      {
+        title: "О нас",
+        children: [
+          { title: "О сервисе", href: "javascript:void(0)" },
+          { title: "Наша команда", href: "javascript:void(0)" },
+          { title: "Вакансии", href: "javascript:void(0)" },
+          { title: "Инвесторы", href: "javascript:void(0)" },
+        ],
+      },
+      {
+        title: "Служба поддержки",
+        children: [
+          { title: "Соглашения", href: "javascript:void(0)" },
+          { title: "Сообщества", href: "javascript:void(0)" },
+          { title: "Связь с нами", href: "javascript:void(0)" },
+        ],
+      },
+    ]
+-
+  var subscribeButton = {
+    icon: "arrow_forward",
+    type: "submit",
+    title: "Отправить",
+  }
