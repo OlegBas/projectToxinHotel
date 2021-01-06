@@ -8,6 +8,7 @@ include ../../components/toggle/toggle
 include ../../components/radioGroup/radioGroup
 include ../../components/calendar/calendar
 include ../../components/formBox/formBox
+include ../../components/roomItem/roomItem
 
 
 block head
@@ -89,11 +90,11 @@ block content
                                 .formBox__formItem
                                     p.dialog__text Нет аккаунта на Toxin?
                                     +button({name: "Создать", type: "secondary", href: "registration.html", size: "l"})
-                        .ui-kit-column
-                            .card
-                                +calendar()
-                            .card
-                                //- +roomItem({imgList: ["assets/img/888/1-sm.jpg", "assets/img/888/2-sm.jpg", "assets/img/888/3-sm.jpg", "assets/img/888/2-sm.jpg"], number: 888, isLux: true, cost: 9990, rate: 5, reviewCount: 145})
-                            .card.card--with-room
-                                //- +roomItem({imgList: ["assets/img/rooms/840.jpg", "assets/img/rooms/840.jpg", "assets/img/rooms/840.jpg", "assets/img/rooms/840.jpg"], number: 840, isLux: false, cost: 9900, rate: 4, reviewCount: 65})
+                .ui-kit-column
+                    .card
+                        +calendar()
+                    .card
+                        +roomItem({imagesList: ["assets/images/888/1-sm.jpg", "assets/images/888/2-sm.jpg", "assets/images/sliders/3-sm.jpg", "assets/images/sliders/2-sm.jpg"], number: 888, isLux: true, cost: 9990, rate: 5, reviewCount: 145})
+                    .card.card--with-room
+                        +roomItem({imagesList: ["assets/images/sliders/840.jpg", "assets/images/sliders/840.jpg", "assets/images/sliders/840.jpg", "assets/images/sliders/840.jpg"], number: 840, isLux: false, cost: 9900, rate: 4, reviewCount: 65})
                                 

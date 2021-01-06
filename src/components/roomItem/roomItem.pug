@@ -1,5 +1,5 @@
-include ../rate/rate
-include ../../mixins
+include ../rateButton/rateButton
+include ../../lib
 
 mixin roomItem(options)
   - var {imgList = [], number = 0, isLux = false, cost = 0, rate = 0, reviewCount = 0} = options;
@@ -8,8 +8,8 @@ mixin roomItem(options)
     .roomItem__gallery
       for img in imgList
         img.roomItem__galleryItem(src= img)
-    a.roomItem__description(href="room.html")
-      .roomItem__description-row.roomItem__descriptionRow_underlined
+    a.roomItem__desc(href="room.html")
+      .roomItem__descRow.roomItem__descRow_underlined
         p.roomItem__title
           | № 
           span.roomItem__title_big= number
@@ -20,9 +20,9 @@ mixin roomItem(options)
             +numberWithSpaces(cost)
             | ₽ 
           span.roomItem__infoItem.roomItem__infoItem_small в сутки
-      .roomItem__descriptionRow
+      .roomItem__descRow
         .roomItem__rate
-          +rate(rate)
+          +rateButton(rate)
         p.roomItem__info
           span.roomItem__infoItem.roomItem__infoItem_bold= `${reviewCount} `
           | Отзывов
