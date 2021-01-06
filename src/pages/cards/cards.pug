@@ -38,3 +38,43 @@ block content
                             .formBox__item
                                 +selectElement({items, label: "Гости", name: "guestCount", required: true, placeholder: "Сколько гостей", withButtons: true})
                                 +button({name: "Подобрать номер", icon: "arrow_forward", size: "l", href: "search.html"})
+                    .card
+                        -
+                            var radioGroup = {
+                                name: "user-gender",
+                                title: "Ваш пол",
+                            radioButtons: [
+                                {label: "Мужчина", value: "man", checked: true},
+                                {label: "Женщина", value: "woman"}
+                            ]
+                            }
+                        +formBox({title: "Регистрация аккаунта"})
+                            .formBox__item
+                                +input()(placeholder="Имя" name="user-name" required)
+                            .formBox__item
+                                +input()(placeholder="Фамилия" name="user-surname")
+                            .formBox__item
+                                +radioGroup(radioGroup)
+                            .formBox__item
+                                +input({label: "Дата рождения"})(placeholder="ДД.ММ.ГГГГ" name="user-bday")
+                            .formBox__item
+                                +input({label: "Данные для входа в сервис"})(type="email" placeholder="Email" name="user-email" required)
+                            .formBox__item
+                                +input()(type="password" placeholder="Пароль" name="user-password" required)
+                            .formBox__item
+                                +toggle({label: "Получать спецпредложения", name: "allow-notifications"})
+                            .formBox__item  
+                                +button({name: "Перейти к оплате", icon: "arrow_forward", size: "l"})(type="submit")
+                            .formBox__item
+                                p.dialog__text Уже есть аккаунт на Toxin
+                                +button({name: "Войти", type: "secondary", href: "signin.html", size: "l"})
+                .ui-kit-column
+                    .card
+                        +formBox({number: "888", isLux: true, cost: 9990})
+                            .formBox__item
+                                +dateDropdown({split: true, start: new Date(2020, 7, 19), end: new Date(2020, 7, 23)})
+                            .formBox__item
+                                +selectElement({items: itemsWithGuests, label: "Гости", name: "guestCount", required: true, placeholder: "Сколько гостей", withButtons: true})
+                            .formBox__item
+                                
+                                +button({name: "Забронировать", icon: "arrow_forward", size: "l"})(type="submit")
