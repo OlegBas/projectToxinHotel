@@ -1,0 +1,65 @@
+$paddingMain: 29px;
+$paddingLg: 39px;
+$paddingSm: 8px;
+
+.formBox {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  width: 380px;
+  &__header,
+  &__content {
+    padding-left: $paddingMain;
+    padding-right: $paddingMain;
+  }
+  &__header {
+    padding-top: $paddingLg;
+    padding-bottom: 12px;
+  }
+  &__content {
+    padding-top: 8px;
+    padding-bottom: $paddingMain;
+  }
+  &__title {
+    font-family: $fontSecondary;
+  }
+  &__titleWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: $baseSizeText;
+    line-height: 1.5;
+  }
+  &__roomTitle {
+    font-family: $fontSecondary;
+    font-weight: bold;
+    font-size: inherit;
+  }
+  &__roomNumber {
+    font-size: $textLg;
+  }
+  &__roomType {
+    color: $colorPrimary;
+    text-transform: uppercase;
+    font-size: $textSm;
+    font-family: $fontPrimary;
+  }
+  &__roomCost {
+    color: $textColor-50;
+    font-size: 12px;
+    &_bold {
+      font-size: 14px;
+      font-weight: bold;
+    }
+  }
+
+  &__formMessage {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__text {
+    margin-right: 10px;
+  }
+}
