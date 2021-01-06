@@ -78,3 +78,14 @@ block content
                             .formBox__item
                                 
                                 +button({name: "Забронировать", icon: "arrow_forward", size: "l"})(type="submit")
+                        .card
+                            +formBox({title: "Войти"})
+                                .formBox__formItem
+                                    +input()(type="email" placeholder="Email" name="user-email" required)
+                                .formBox__formItem
+                                    +input()(type="password" placeholder="Пароль" name="user-password" required)
+                                .formBox__formItem
+                                    +button({name: "Войти", icon: "arrow_forward", size: "l"})(type="submit")
+                                .formBox__formItem
+                                    p.dialog__text Нет аккаунта на Toxin?
+                                    +button({name: "Создать", type: "secondary", href: "registration.html", size: "l"})
