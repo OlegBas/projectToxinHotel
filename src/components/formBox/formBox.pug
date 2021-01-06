@@ -1,0 +1,21 @@
+mixin formBox(options)
+  - var {title= "", number= 0, isLux= false, cost= 0} = options
+  section.formBox
+    .formBox__header
+      if title
+        h2.formBox__title= title
+      else if number
+        .formBox__titleWrapper
+          h2.formBox__roomTitle
+            | № 
+            span.formBox__roomNumber= number + " "
+            if isLux
+              span.formBox__roomType Люкс
+          span.formBox__roomCost 
+            span.formBox__roomCost.formBox__roomCost_bold
+              +numberWithSpaces(cost)
+              | ₽ 
+            | в сутки
+    .formBox__content
+      form.formBox__form(action="https://myrusakov.ru.ru" method="post")
+        block
