@@ -1,0 +1,28 @@
+include ../rate/rate
+include ../../mixins
+
+mixin roomItem(options)
+  - var {imgList = [], number = 0, isLux = false, cost = 0, rate = 0, reviewCount = 0} = options;
+
+  .roomItem
+    .roomItem__gallery
+      for img in imgList
+        img.roomItem__galleryItem(src= img)
+    a.roomItem__description(href="room.html")
+      .roomItem__description-row.roomItem__descriptionRow_underlined
+        p.roomItem__title
+          | № 
+          span.roomItem__title_big= number
+          if isLux 
+            span.roomItem__type= ` Люкс`
+        p.roomItem__info
+          span.roomItem__infoItem.roomItem__infoItem_bold
+            +numberWithSpaces(cost)
+            | ₽ 
+          span.roomItem__infoItem.roomItem__infoItem_small в сутки
+      .roomItem__descriptionRow
+        .roomItem__rate
+          +rate(rate)
+        p.roomItem__info
+          span.roomItem__infoItem.roomItem__infoItem_bold= `${reviewCount} `
+          | Отзывов
