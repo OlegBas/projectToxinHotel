@@ -10,12 +10,31 @@ include ../../components/calendar/calendar
 include ../../components/formBox/formBox
 
 
-
-
-
 block head
   - var title = "Карточки сайта";
 
 
 block content
-  main.ui-kit-page
+    -
+        var items = [
+            {title: "Взрослые", count: 0, typeOfData: "Гости"},
+            {title: "Дети", count: 0, typeOfData: "Гости"},
+            {title: "Младенцы", count: 0},
+        ]
+        var itemsWithGuests = [
+            {title: "Взрослые", count: 2, typeOfData: "Гости"},
+            {title: "Дети", count: 1, typeOfData: "Гости"},
+            {title: "Младенцы", count: 0},
+        ]
+
+    main.ui-kit-page
+        .container
+            .ui-kit-row
+                .ui-kit-column
+                    .card
+                        +formBox({title: "Найдём номера под ваши пожелания"})
+                            .formBox__item
+                                +dateDropdown({split: true})
+                            .formBox__item
+                                +selectElement({items, label: "Гости", name: "guestCount", required: true, placeholder: "Сколько гостей", withButtons: true})
+                                +button({name: "Подобрать номер", icon: "arrow_forward", size: "l", href: "search.html"})
