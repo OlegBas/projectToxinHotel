@@ -30,7 +30,6 @@ mixin dateDropdown(options)
     var inputsData = split
       ? [{label: startLabel, value: startDateString}, {label: endLabel, value: endDateString}]
       : [{label: label, value: periodDateString}]
-  script(src='./assets/js/func.js')
   .dateDropdown.jsDateDropdown
     //Выводи элементы для выбора дат из массива объектов
     for inputDataItem, index in inputsData

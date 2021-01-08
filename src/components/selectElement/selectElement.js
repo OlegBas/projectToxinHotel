@@ -144,7 +144,6 @@ function selectElement(selectEl) {
       .closest(".selectElement__items")
       .find('.justButton[data-action="apply-select"]')
       .parent();
-    console.log(countPeoples);
     if (countPeoples === 0) {
       clearButton.addClass("selectElement__footer-button_hide");
       applyButton.find("button").attr("disabled", false);
@@ -199,7 +198,6 @@ function selectElement(selectEl) {
   }
 
   function handleApplyVals(e) {
-    console.log(3);
     const countData = getCountData(items);
     const countValue = getCountString(countData);
     $(e.target)

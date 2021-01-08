@@ -52,7 +52,6 @@ const PAGES = getFiles(PAGE_FOLDERS, "pug");
 const ENTRY_FILES = getFiles(PAGE_FOLDERS, "js");
 
 const ENTRYS = {};
-console.log(ENTRY_FILES);
 
 ENTRY_FILES.forEach((entryFile, index) => {
   const fileName = entryFile.split(".")[0];

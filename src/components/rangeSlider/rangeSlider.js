@@ -10,8 +10,6 @@ $(".rangeSlider__input").ionRangeSlider({
 });
 
 function updateValue(data) {
-  console.log(data.to);
-  console.log(data.from);
   const valueArea = $(data.input)
     .closest(".rangeSlider")
     .find(".rangeSlider__caption");
