@@ -28,13 +28,13 @@ block content
             {title: "Младенцы", count: 0},
         ]
 
-    main.ui-kit-page
+    main.ui-kit-page.ui-kit-page-cards
         .container
             .ui-kit-row
                 .ui-kit-column
                     .card
                         +formBox({title: "Найдём номера под ваши пожелания"})
-                            .formBox__item
+                            .formBox__item.mb21
                                 +dateDropdown({split: true})
                             .formBox__item
                                 +selectElement({items, label: "Гости", name: "guestCount", required: true, placeholder: "Сколько гостей", withButtons: true})
@@ -50,46 +50,45 @@ block content
                             ]
                             }
                         +formBox({title: "Регистрация аккаунта"})
-                            .formBox__item
+                            .formBox__item.mb10
                                 +input()(placeholder="Имя" name="user-name" required)
-                            .formBox__item
+                            .formBox__item.mb10
                                 +input()(placeholder="Фамилия" name="user-surname")
-                            .formBox__item
+                            .formBox__item.mb20
                                 +radioGroup(radioGroup)
-                            .formBox__item
+                            .formBox__item.mb20
                                 +input({label: "Дата рождения"})(placeholder="ДД.ММ.ГГГГ" name="user-bday")
-                            .formBox__item
+                            .formBox__item.mb10
                                 +input({label: "Данные для входа в сервис"})(type="email" placeholder="Email" name="user-email" required)
-                            .formBox__item
+                            .formBox__item.mb10
                                 +input()(type="password" placeholder="Пароль" name="user-password" required)
-                            .formBox__item
+                            .formBox__item.mb20
                                 +toggle({label: "Получать спецпредложения", name: "allow-notifications"})
-                            .formBox__item  
+                            .formBox__item.mb30
                                 +button({name: "Перейти к оплате", icon: "arrow_forward", size: "l"})(type="submit")
-                            .formBox__item
+                            .formBox__item.withButton
                                 p.dialog__text Уже есть аккаунт на Toxin
                                 +button({name: "Войти", type: "secondary", href: "signin.html", size: "l"})
                 .ui-kit-column
                     .card
                         +formBox({number: "888", isLux: true, cost: 9990})
-                            .formBox__item
+                            .formBox__item.mb20
                                 +dateDropdown({split: true, start: new Date(2020, 7, 19), end: new Date(2020, 7, 23)})
-                            .formBox__item
+                            .formBox__item.mb20
                                 +selectElement({items: itemsWithGuests, label: "Гости", name: "guestCount", required: true, placeholder: "Сколько гостей", withButtons: true})
-                            .formBox__item
-                                
+                            .formBox__item.mb21
                                 +button({name: "Забронировать", icon: "arrow_forward", size: "l"})(type="submit")
-                        .card
-                            +formBox({title: "Войти"})
-                                .formBox__formItem
-                                    +input()(type="email" placeholder="Email" name="user-email" required)
-                                .formBox__formItem
-                                    +input()(type="password" placeholder="Пароль" name="user-password" required)
-                                .formBox__formItem
-                                    +button({name: "Войти", icon: "arrow_forward", size: "l"})(type="submit")
-                                .formBox__formItem
-                                    p.dialog__text Нет аккаунта на Toxin?
-                                    +button({name: "Создать", type: "secondary", href: "registration.html", size: "l"})
+                    .card
+                        +formBox({title: "Войти"})
+                            .formBox__formItem.mb10
+                                +input()(type="email" placeholder="Email" name="user-email" required)
+                            .formBox__formItem.mb10
+                                +input()(type="password" placeholder="Пароль" name="user-password" required)
+                            .formBox__formItem.mb20
+                                +button({name: "Войти", icon: "arrow_forward", size: "l"})(type="submit")
+                            .formBox__formItem.withButton
+                                p.dialog__text Нет аккаунта на Toxin?
+                                +button({name: "Создать", type: "secondary", href: "registration.html", size: "l"})
                 .ui-kit-column
                     .card
                         +calendar()

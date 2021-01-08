@@ -128,9 +128,9 @@
     }
   }
   &__title {
-    line-height: 1.26;
+    line-height: 17.5px;
     font-weight: bold;
-    color: textColor;
+    color: $textColor;
     font-family: $fontSecondary;
     &_big {
       font-size: $textMd;
@@ -143,7 +143,7 @@
     font-family: $fontPrimary;
   }
   &__info {
-    color: textColor-50;
+    color: $textColor-50;
     font-size: $baseSizeText;
   }
   &__infoItem {

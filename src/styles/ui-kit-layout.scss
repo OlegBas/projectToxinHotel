@@ -42,3 +42,15 @@
   margin-left: -20px;
   margin-top: 31px;
 }
+
+.ui-kit-page-cards {
+  .ui-kit-column {
+    margin-right: 30px;
+    &:last-child {
+      margin-right: 0;
+    }
+    &:nth-child(2) {
+      margin-left: 0;
+    }
+  }
+}
