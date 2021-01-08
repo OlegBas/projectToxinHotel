@@ -1,0 +1,40 @@
+.price {
+  &__cellWrapper {
+    display: flex;
+    justify-content: space-between;
+    line-height: 1.29;
+
+    &_alignedRight {
+      justify-content: flex-end;
+      padding-left: 5px;
+    }
+    &_pt20 {
+      padding-top: 20px;
+    }
+  }
+  &__dots {
+    flex-grow: 1;
+    border-bottom: 1px dotted $textColor-25;
+    margin-left: 5px;
+  }
+  &__cell {
+    vertical-align: top;
+    padding: 7px 0;
+  }
+  &__total {
+    font-family: $fontSecondary;
+    font-weight: bold;
+    font-size: $textMd;
+    color: $textColor;
+    line-height: 23.16px;
+    .price__cellWrapper {
+      line-height: 0.6;
+      padding-bottom: 7px;
+      margin-top: 30px;
+      margin-bottom: 20px;
+    }
+  }
+  .ml5 {
+    margin-left: 5px;
+  }
+}

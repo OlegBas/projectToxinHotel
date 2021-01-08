@@ -1,0 +1,6 @@
+mixin tooltip(text)
+  .tooltip
+    button.tooltip__button(type="button")
+        span.visually-hidden Показать описание
+        | i
+    .tooltip__description= text

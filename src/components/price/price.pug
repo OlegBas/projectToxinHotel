@@ -1,0 +1,55 @@
+include ../../lib
+include ../tooltip/tooltip
+
+mixin price(data)
+  - var {roomCost= 0, days= 0, servicesCost= 0, additional= 0} = data
+  - var totalRoomCost = roomCost * days
+  - var total = totalRoomCost + servicesCost + additional
+
+  table.price
+    tbody.price__details
+      tr.price__row
+        td.price__cell
+          .price__cellWrapper
+            +numberWithSpaces(roomCost)
+            = `₽ х ${days} `
+            +translateWord(days, ["сутки", "суток", "суток"])
+        td.price__cell
+          .price__cellWrapper.price__cellWrapper_alignedRight
+            +numberWithSpaces(totalRoomCost)
+            | ₽
+      tr.price__row
+        td.price__cell
+          .price__cellWrapper
+            | Сбор за&nbsp;услуги
+            if servicesCost < 0
+              | : скидка&nbsp;
+              +numberWithSpaces(-servicesCost)
+              | ₽
+            .price__tooltip.ml5
+              +tooltip("Скидка на первую бронь за подписку")
+        td.price__cell
+          .price__cellWrapper.price__cellWrapper_alignedRight
+            if servicesCost > 0
+              +numberWithSpaces(servicesCost)
+              | ₽
+            else
+              | 0₽
+      tr.price__row
+        td.price__cell
+          .price__cellWrapper Сбор за дополнительные услуги
+            .price__tooltip.ml5
+              +tooltip("Чаевые для персонала уже включены в счет")
+        td.price__cell
+          .price__cellWrapper.price__cellWrapper_alignedRight
+            +numberWithSpaces(additional)
+            | ₽
+    tfoot.price__total
+      tr.price__row
+        td.price__cell
+          .price__cellWrapper.price__cellWrapper Итого
+            span.price__dots
+        td.price__cell
+          .price__cellWrapper.price__cellWrapper_alignedRight.price__cellWrapper
+            +numberWithSpaces(total)
+            | ₽

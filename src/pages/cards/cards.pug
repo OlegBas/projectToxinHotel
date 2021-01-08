@@ -9,6 +9,7 @@ include ../../components/radioGroup/radioGroup
 include ../../components/calendar/calendar
 include ../../components/formBox/formBox
 include ../../components/roomItem/roomItem
+include ../../components/price/price
 
 
 block head
@@ -76,6 +77,8 @@ block content
                                 +dateDropdown({split: true, start: new Date(2020, 7, 19), end: new Date(2020, 7, 23)})
                             .formBox__item.mb20
                                 +selectElement({items: itemsWithGuests, label: "Гости", name: "guestCount", required: true, placeholder: "Сколько гостей", withButtons: true})
+                            .formBox_item
+                                +price({roomCost: 9990, days: 4, servicesCost: -2179, additional: 300})
                             .formBox__item.mb21
                                 +button({name: "Забронировать", icon: "arrow_forward", size: "l"})(type="submit")
                     .card
