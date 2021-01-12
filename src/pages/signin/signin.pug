@@ -1,7 +1,24 @@
-<!DOCTYPE html>
-html(lang="en")
-    head
-        meta(charset="UTF-8")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Document23
-    body
+extends ../../layouts/layoutOnDefault
+include ../../components/formBox/formBox
+include ../../components/input/input
+include ../../components/button/button
+
+block head
+  - var title = "Авторизация";
+
+block logo
+  - var isMainPage = false
+
+block content
+  main.signin
+    .container
+        +formBox({title: "Войти"})
+            .formBox__formItem.mb10
+                +input()(type="email" placeholder="Email" name="user-email" required)
+            .formBox__formItem.mb10
+                +input()(type="password" placeholder="Пароль" name="user-password" required)
+            .formBox__formItem.mb20
+                +button({name: "Войти", icon: "arrow_forward", size: "l"})(type="submit")
+            .formBox__formItem.withButton
+                p.dialog__text Нет аккаунта на Toxin?
+                +button({name: "Создать", type: "secondary", href: "registration.html", size: "l"})

@@ -1,0 +1,48 @@
+extends ../../layouts/layoutOnDefault
+include ../../components/formBox/formBox
+include ../../components/input/input
+include ../../components/button/button
+include ../../components/toggle/toggle
+include ../../components/radioGroup/radioGroup
+
+
+
+block head
+  - var title = "Регистрация";
+
+block logo
+  - var isMainPage = false
+
+block content
+  main.reg
+    .container
+      -
+        var radioGroup = {
+            name: "user-gender",
+            title: "Ваш пол",
+        radioButtons: [
+            {label: "Мужчина", value: "man", checked: true},
+            {label: "Женщина", value: "woman"}
+        ]
+        }
+      +formBox({title: "Регистрация аккаунта"}) //TODO Жирность и шрифт заголовка не соответствуют макету
+        .formBox__item.mb10
+            +input()(placeholder="Имя" name="user-name" required)
+        .formBox__item.mb10
+            +input()(placeholder="Фамилия" name="user-surname")
+        .formBox__item.mb20
+            +radioGroup(radioGroup)
+        .formBox__item.mb20
+            +input({label: "Дата рождения"})(placeholder="ДД.ММ.ГГГГ" name="user-bday")
+        .formBox__item.mb10
+            +input({label: "Данные для входа в сервис"})(type="email" placeholder="Email" name="user-email" required)
+        .formBox__item.mb10
+            +input()(type="password" placeholder="Пароль" name="user-password" required)
+        .formBox__item.mb20
+            +toggle({label: "Получать спецпредложения", name: "allow-notifications"})
+        .formBox__item.mb30
+            +button({name: "Перейти к оплате", icon: "arrow_forward", size: "l"})(type="submit")
+        .formBox__item.withButton
+            p.dialog__text Уже есть аккаунт на Toxin
+            +button({name: "Войти", type: "secondary", href: "signin.html", size: "l"})
+        
