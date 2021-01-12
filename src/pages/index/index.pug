@@ -1,7 +1,13 @@
-<!DOCTYPE html>
-html(lang="en")
-    head
-        meta(charset="UTF-8")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Document23
-    body
+extends ../../layouts/layoutOnDefault
+include ../../components/dateDropdown/dateDropdown
+include ../../components/input/input
+include ../../components/formBox/formBox
+include ../../components/button/button
+include ../../components/selectElement/selectElement
+
+block head
+  - var title = "Главная страница";
+
+block logo
+  - var isMainPage = true
+

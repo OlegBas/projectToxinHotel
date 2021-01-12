@@ -1,0 +1,15 @@
+.siteWrapper {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  .content-wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .subtitle {
+    margin-top: 320px;
+    max-width: 300px;
+    align-self: flex-end;
+    text-align: right;
+  }
+}
