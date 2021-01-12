@@ -1,0 +1,13 @@
+include ../roomItem/roomItem
+include ../paginator/paginator
+
+mixin renderAllRooms(roomsList)
+  - var paginatorOptions = {countOnPage: 12, countTotal: 180, currentPage: 1}
+  section.renderAllRooms
+    h1.renderAllRooms__title Номера, которые мы для вас подобрали
+    ul.renderAllRooms__list
+      for room in roomsList
+        li.renderAllRooms__listItem
+          +roomItem(room)
+    .renderAllRooms__paginator
+      +paginator(paginatorOptions)

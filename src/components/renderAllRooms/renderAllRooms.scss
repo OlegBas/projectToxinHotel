@@ -1,0 +1,18 @@
+.renderAllRooms {
+  width: 835px;
+  &__list {
+    display: flex;
+    width: 835px;
+    flex-wrap: wrap;
+  }
+  &__title {
+    margin: 30px 0 20px;
+    font-family: $fontSecondary;
+  }
+  &__paginator {
+    padding: 40px 0 73px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+}

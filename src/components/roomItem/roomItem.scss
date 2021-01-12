@@ -1,9 +1,13 @@
 .roomItem {
+  // TODO нужно как-то убрать правый margin у последнего элемента в строке без группировки элементов списка по строкам
   background: #ffffff;
   box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
   border-radius: 4px;
   overflow: hidden;
   transition: box-shadow 0.2s ease;
+  margin-bottom: 20px;
+  margin-right: 12px;
+  width: 270px;
   &:hover {
     box-shadow: 0 10px 30px rgba(31, 32, 65, 0.15);
   }

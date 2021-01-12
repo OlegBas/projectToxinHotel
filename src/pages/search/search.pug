@@ -1,7 +1,91 @@
-<!DOCTYPE html>
-html(lang="en")
-    head
-        meta(charset="UTF-8")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Document23
-    body
+extends ../../layouts/layoutOnDefault
+include ../../components/renderAllRooms/renderAllRooms
+include ../../components/groupElements/groupElements
+include ../../components/checkboxList/checkboxList
+include ../../components/selectElement/selectElement
+include ../../components/dateDropdown/dateDropdown
+include ../../components/rangeSlider/rangeSlider
+
+block head
+  - var title = "Поиск номеров в отеле Toxin";
+
+block footer
+  - var isUnderlined = true
+
+block logo
+  - var isMainPage = false
+
+block content
+  //- если есть typeOfData то объединяются все элементы с одинаковым словом
+  //- иначе считаются отдельно
+  -
+    var guestItems = [
+      {title: "Взрослые", count: 2, typeOfData: "Гости"},
+      {title: "Дети", count: 1, typeOfData: "Гости"},
+      {title: "Младенцы", count: 1},
+    ]
+
+    var roomItems = [
+      {title: "Спальни", count: 2},
+      {title: "Кровати", count: 2},
+      {title: "Ванные комнаты", count: 0},
+    ]
+  main.searchPage
+    .container
+      .searchPage__columns
+        .filters
+            .item
+                +dateDropdown({start: new Date(2020, 7, 19), end: new Date(2020, 7, 23)})
+            .item
+                //- +selectElement({items: guestItems, label: "Гости", name: "guestCount", required: true, placeholder: "Сколько гостей", withButtons: false})
+            .item
+                +rangeSlider({label: "Диапазон цены", description: "Стоимость за сутки пребывания в номере", unit: "₽", from: 5000, to: 10000, max: 15000})
+            .item
+                +groupElements("Условия размещения")
+                    +checkboxList([
+                        {label: "Можно курить", name: "conditionals", value: "allow-smoke"},
+                        {label: "Можно с питомцами", name: "conditionals", value: "allow-pets", checked: true},
+                        {label: "Можно пригласить гостей (до&nbsp;10&nbsp;человек)", name: "conditionals", value: "allow-guests", checked: true},
+                    ])
+            .item
+                +groupElements("Доступность")
+                    +checkboxList([
+                        {label: "Широкий коридор", details: "Ширина коридоров в&nbsp;номере не&nbsp;менее 91&nbsp;см", name: "accesability", value: "wide-hall"},
+                        {label: "Помощник для инвалидов", details: "На&nbsp;1&nbsp;этаже вас встретит специалист и&nbsp;проводит до&nbsp;номера", name: "accesability", value: "helper", checked: true},
+                    ])
+            .item
+                //-  +selectElement({items: roomItems, label: "Удобства номера", name: "roomsCount", placeholder: "Удобства номера", withButtons: false})
+            .item
+                +groupElements()
+            .item
+                +groupElements("")
+                    details.groupElements__accordion(open)
+                        summary.groupElements__group-title.groupElements__group-title_with-icon Дополнительные удобства
+                            i.material-icons.material-icons__more expand_more
+                            i.material-icons.material-icons__less expand_less
+                        +checkboxList([
+                            {label: "Завтрак", name: "additionally", value: "breakfast"},
+                            {label: "Письменный стол",  name: "additionally", value: "desktop", checked: true},
+                            {label: "Стул для кормления",  name: "additionally", value: "child-chair", checked: true},
+                            {label: "Кроватка",  name: "additionally", value: "child-bed", checked: true},
+                            {label: "Телевизор",  name: "additionally", value: "tv"},
+                            {label: "Шампунь",  name: "additionally", value: "shampoo"},
+                        ])
+           
+          
+        -
+          var roomsList = [
+            {imgList: ["assets/img/888/1-sm.jpg", "assets/img/888/2-sm.jpg", "assets/img/888/3-sm.jpg", "assets/img/888/2-sm.jpg"], number: 888, isLux: true, cost: 9990, rate: 5, reviewCount: 145},
+            {imgList: ["assets/img/rooms/840.jpg", "assets/img/rooms/840.jpg", "assets/img/rooms/840.jpg", "assets/img/rooms/840.jpg"], number: 840, isLux: false, cost: 9900, rate: 4, reviewCount: 65},
+            {imgList: ["assets/img/rooms/980.jpg", "assets/img/rooms/980.jpg", "assets/img/rooms/980.jpg", "assets/img/rooms/980.jpg"], number: 980, isLux: true, cost: 8500, rate: 3, reviewCount: 35},
+            {imgList: ["assets/img/rooms/856.jpg", "assets/img/rooms/856.jpg", "assets/img/rooms/856.jpg", "assets/img/rooms/856.jpg"], number: 856, isLux: false, cost: 7300, rate: 5, reviewCount: 19},
+            {imgList: ["assets/img/rooms/740.jpg", "assets/img/rooms/740.jpg", "assets/img/rooms/740.jpg", "assets/img/rooms/740.jpg"], number: 740, isLux: false, cost: 6000, rate: 4, reviewCount: 44},
+            {imgList: ["assets/img/rooms/982.jpg", "assets/img/rooms/982.jpg", "assets/img/rooms/982.jpg", "assets/img/rooms/982.jpg"], number: 982, isLux: false, cost: 5800, rate: 3, reviewCount: 56},
+            {imgList: ["assets/img/rooms/678.jpg", "assets/img/rooms/678.jpg", "assets/img/rooms/678.jpg", "assets/img/rooms/678.jpg"], number: 678, isLux: false, cost: 5500, rate: 5, reviewCount: 45},
+            {imgList: ["assets/img/rooms/450.jpg", "assets/img/rooms/450.jpg", "assets/img/rooms/450.jpg", "assets/img/rooms/450.jpg"], number: 450, isLux: false, cost: 5300, rate: 4, reviewCount: 39},
+            {imgList: ["assets/img/rooms/350.jpg", "assets/img/rooms/350.jpg", "assets/img/rooms/350.jpg", "assets/img/rooms/350.jpg"], number: 350, isLux: false, cost: 5000, rate: 3, reviewCount: 77},
+            {imgList: ["assets/img/rooms/666.jpg", "assets/img/rooms/666.jpg", "assets/img/rooms/666.jpg", "assets/img/rooms/666.jpg"], number: 666, isLux: false, cost: 5000, rate: 5, reviewCount: 25},
+            {imgList: ["assets/img/rooms/444.jpg", "assets/img/rooms/444.jpg", "assets/img/rooms/444.jpg", "assets/img/rooms/444.jpg"], number: 444, isLux: false, cost: 5000, rate: 3, reviewCount: 15},
+            {imgList: ["assets/img/rooms/352.jpg", "assets/img/rooms/352.jpg", "assets/img/rooms/352.jpg", "assets/img/rooms/352.jpg"], number: 352, isLux: false, cost: 5000, rate: 3, reviewCount: 55}
+          ]
+        +renderAllRooms(roomsList)

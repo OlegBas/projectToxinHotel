@@ -8,6 +8,9 @@
 @import "layoutOnDefault.scss";
 @import "index.scss";
 @import "signin.scss";
+@import "reg.scss";
+@import "room.scss";
+@import "search.scss";
 @import "../pages/cards/cards";
 @import "../components/ui-kit-header/ui-kit-header";
 @import "../components/renderAllColors/renderAllColors";
@@ -34,3 +37,4 @@
 @import "../components/roomItem/roomItem";
 @import "../components/price/price";
 @import "../components/tooltip/tooltip";
+@import "../components/renderAllRooms/renderAllRooms.scss";
