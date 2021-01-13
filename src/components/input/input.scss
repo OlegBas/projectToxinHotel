@@ -1,4 +1,5 @@
 .formElement {
+  height: 63px;
   &__wrapper {
     @include flex(null, null, column);
   }

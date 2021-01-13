@@ -6,7 +6,6 @@
   overflow: hidden;
   transition: box-shadow 0.2s ease;
   margin-bottom: 20px;
-  margin-right: 12px;
   width: 270px;
   &:hover {
     box-shadow: 0 10px 30px rgba(31, 32, 65, 0.15);
@@ -49,7 +48,7 @@
       &:before {
         opacity: 1;
       }
-      .roomItem__gallery-arrow {
+      .roomItem__galleryArrow {
         opacity: 1;
       }
     }
