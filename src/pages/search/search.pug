@@ -16,20 +16,6 @@ block logo
   - var isMainPage = false
 
 block content
-  //- если есть typeOfData то объединяются все элементы с одинаковым словом
-  //- иначе считаются отдельно
-  -
-    var guestItems = [
-      {title: "Взрослые", count: 2, typeOfData: "Гости"},
-      {title: "Дети", count: 1, typeOfData: "Гости"},
-      {title: "Младенцы", count: 1},
-    ]
-
-    var roomItems = [
-      {title: "Спальни", count: 2},
-      {title: "Кровати", count: 2},
-      {title: "Ванные комнаты", count: 0},
-    ]
   main.searchPage
     .container
       .searchPage__columns
@@ -37,7 +23,7 @@ block content
             .item
                 +dateDropdown({start: new Date(2020, 7, 19), end: new Date(2020, 7, 23)})
             .item
-                //- +selectElement({items: guestItems, label: "Гости", name: "guestCount", required: true, placeholder: "Сколько гостей", withButtons: false})
+                 +selectElement({dataSetName:"itemsFull", label: "Dropdown", name: "guestCount", placeholder: "Сколько гостей", withButtons: true, inline: false})
             .item
                 +rangeSlider({label: "Диапазон цены", description: "Стоимость за сутки пребывания в номере", unit: "₽", from: 5000, to: 10000, max: 15000})
             .item
@@ -54,7 +40,7 @@ block content
                         {label: "Помощник для инвалидов", details: "На&nbsp;1&nbsp;этаже вас встретит специалист и&nbsp;проводит до&nbsp;номера", name: "accesability", value: "helper", checked: true},
                     ])
             .item
-                //-  +selectElement({items: roomItems, label: "Удобства номера", name: "roomsCount", placeholder: "Удобства номера", withButtons: false})
+                 +selectElement({dataSetName: "roomItems", label: "Удобства номера", name: "roomsCount", placeholder: "Удобства номера", withButtons: false})
             .item
                 +groupElements()
             .item

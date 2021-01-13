@@ -1,11 +1,9 @@
 .header {
   background-color: #fff;
   box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
-  z-index: 5; //Todo warning
-  position: sticky; //Todo warning
   top: 0;
   &__navigation {
-    padding: 26px 0; //Todo warning
+    padding: 14.01px 0;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
