@@ -2,7 +2,7 @@ extends ../../layouts/layoutOnDefault
 include ../../components/formBox/formBox
 include ../../components/input/input
 include ../../components/button/button
-//- include ../../components/roomПallery/roomGallery
+include ../../components/galleryImages/galleryImages
 include ../../components/bulletList/bulletList
 include ../../components/advantagesList/advantagesList
 include ../../components/comment/comment
@@ -68,6 +68,7 @@ block content
     ]
 
   main.roomPage
+    +galleryImages(roomImages)
     .container
       .roomDescription
         .roomDescription__column
