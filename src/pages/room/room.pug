@@ -7,6 +7,7 @@ include ../../components/bulletList/bulletList
 include ../../components/advantagesList/advantagesList
 include ../../components/comment/comment
 include ../../components/price/price
+include ../../components/pieChart/pieChart
 include ../../components/dateDropdown/dateDropdown
 include ../../components/selectElement/selectElement
 include ../../lib
@@ -40,15 +41,12 @@ block content
       {icon: "whatshot", title: "Уют", subtitle: "Номер оснащён камином"},
     ]
 
-  -
-    var fiveDaysAgo = new Date().setDate(new Date().getDate() - 5)
-    var weekAgo = new Date().setDate(new Date().getDate() - 7)
 
     var comments = [
       {
         userName: "Мурад Сарафанов",
         userAvatar: "assets/images/avatars/man.jpg",
-        date: fiveDaysAgo,
+        date: new Date().setDate(new Date().getDate() - 5),
         message: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.",
         likeOptions: {
           count: 12,
@@ -58,7 +56,7 @@ block content
       {
         userName: "Патрисия Стёклышкова",
         userAvatar: "assets/images/avatars/woman.jpg",
-        date: weekAgo,
+        date: new Date().setDate(new Date().getDate() - 7),
         message: "Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент",
         likeOptions: {
           count: 2,
@@ -79,7 +77,7 @@ block content
 
             section.roomDescription__item.descriptionBlock
               h2.descriptionBlock__title Впечатления от номера
-              
+              +pieChart({perfect: 130, good: 65, satisfactorily: 65})
 
           .roomDescription__group
             section.roomDescription__item.descriptionBlock
