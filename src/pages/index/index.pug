@@ -12,12 +12,7 @@ block logo
   - var isMainPage = true
 
 block content
-  -
-    var items = [
-      {title: "Взрослые", count: 0, typeOfData: "Гости"},
-      {title: "Дети", count: 0, typeOfData: "Гости"},
-      {title: "Младенцы", count: 0},
-    ]
+ 
   main.mainPage
     .container
       .contentWrapper
@@ -25,7 +20,6 @@ block content
         +formBox({title: "Найдём номера под ваши пожелания"})
             .formBox__item.mb21
                 +dateDropdown({split: true})
-                // TODO Указать загрузку данных из файла data.js
             .formBox__item 
-                +selectElement({items, label: "Гости", name: "guestCount", required: true, placeholder: "Сколько гостей", withButtons: true})
+                +selectElement({dataSetName:"itemsEmpty", label: "Гости", name: "guestCount", required: true, placeholder: "Сколько гостей", withButtons: true})
                 +button({name: "Подобрать номер", icon: "arrow_forward", size: "l", href: "search.html"})
