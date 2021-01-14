@@ -2,21 +2,15 @@ $galleryHeight: 485px;
 $galleryWidth: 100vw;
 
 .galleryImages {
-  &__list {
-    margin: 0;
-  }
-  &__listWrapper {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    height: $galleryHeight;
-    max-width: $galleryWidth;
-  }
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: $galleryHeight;
+  max-width: $galleryWidth;
+
   &__item {
-    flex-grow: 1;
     max-width: calc(#{$galleryWidth} / 3);
     max-height: 50%;
-    overflow: hidden;
     &_current {
       max-height: 100%;
       max-width: calc(#{$galleryWidth} / 3 * 2);
@@ -24,6 +18,5 @@ $galleryWidth: 100vw;
   }
   &__itemImg {
     height: 100%;
-    object-fit: cover;
   }
 }

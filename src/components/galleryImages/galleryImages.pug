@@ -3,11 +3,9 @@ mixin image(image, index)
   if index === 0
     - className = `${className} galleryImages__item_current`
   div(class= className)
-    img.galleryImages__item_img(src= image.src loading="lazy" alt= image.alt)
+    img.galleryImages__itemImg(src= image.src loading="lazy" alt= image.alt)
 
 mixin galleryImages(images)
   section.galleryImages
-    figure.galleryImages__list
-      .galleryImages__listWrapper
-        for image, index in images
-          +image(image, index)
+    for image, index in images
+      +image(image, index)

@@ -20,6 +20,7 @@ block content
         +formBox({title: "Найдём номера под ваши пожелания"})
             .formBox__item.mb21
                 +dateDropdown({split: true})
-            .formBox__item 
+            .formBox__item.mb31
                 +selectElement({dataSetName:"itemsEmpty", label: "Гости", name: "guestCount", required: true, placeholder: "Сколько гостей", withButtons: true})
-                +button({name: "Подобрать номер", icon: "arrow_forward", size: "l", href: "search.html"})
+            .formBox__item
+              +button({name: "Подобрать номер", icon: "arrow_forward", size: "l", href: "search.html"})
