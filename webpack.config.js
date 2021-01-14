@@ -61,7 +61,7 @@ ENTRY_FILES.forEach((entryFile, index) => {
 const plugins = () => {
   const basePlugins = [
     new MiniCssExtractPlugin({
-      filename: `./assets/css/${filename("css")}`,
+      filename: `${filename("css")}`,
     }),
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin({
@@ -84,33 +84,6 @@ const plugins = () => {
         })
     ),
   ];
-
-  if (isProd) {
-    // basePlugins.push(
-    //   // new ImageminPlugin({
-    //   //   bail: false, // Ignore errors on corrupted images
-    //   //   cache: true,
-    //   //   imageminOptions: {
-    //   //     plugins: [
-    //   //       ["gifsicle", { interlaced: true }],
-    //   //       ["jpegtran", { progressive: true }],
-    //   //       ["optipng", { optimizationLevel: 5 }],
-    //   //       [
-    //   //         "svgo",
-    //   //         {
-    //   //           plugins: [
-    //   //             {
-    //   //               removeViewBox: false,
-    //   //             },
-    //   //           ],
-    //   //         },
-    //   //       ],
-    //   //     ],
-    //   //   },
-    //   // })
-    // );
-  }
-
   return basePlugins;
 };
 
@@ -167,14 +140,6 @@ module.exports = {
       {
         test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
         type: "asset/resource",
-      },
-      {
-        test: /\.(png|jpe?g|gif)$/i,
-        use: [
-          {
-            loader: "file-loader",
-          },
-        ],
       },
       // шрифты и SVG
       {
