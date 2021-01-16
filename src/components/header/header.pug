@@ -1,4 +1,5 @@
 include ../button/button
+include ../mobileMenu/mobileMenu
 
 -
   var itemsOfNav = [
@@ -46,3 +47,17 @@ header.header
             +button({name: "Войти", type: "secondary", href: "signin.html"})
           li.userNavigation__item
             +button({name: "Зарегистрироваться", href: "reg.html"})
+    nav.header__navigation.header__navigation_forMobile
+      .header__row.header__row_mobile
+        include ../logo/logo
+        +mobileMenu()
+      .header__navigationWrapper
+        +getNavigation(navItems)
+        if user
+          .header__user= user
+        else
+          ul.header__userNavigation
+            li.userNavigation__item
+              +button({name: "Войти", type: "secondary", href: "signin.html"})
+            li.userNavigation__item
+              +button({name: "Зарегистрироваться", href: "reg.html"})

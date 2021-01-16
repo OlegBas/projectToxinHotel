@@ -8,4 +8,5 @@ import "../../components/rangeSlider/rangeSlider";
 import "../../components/dateDropdown/dateDropdown";
 import "../../components/calendar/calendar";
 import "../../components/roomItem/roomItem";
+import "../../components/header/header";
 import "../../js/9ba1a07eb4.js";

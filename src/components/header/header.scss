@@ -1,14 +1,20 @@
+@import "../mobileMenu/mobileMenu";
 .header {
   background-color: #fff;
   box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
   top: 0;
+  z-index: 7;
   &__navigation {
     padding: 14.01px 0;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+    &_forMobile {
+      display: none;
+    }
   }
+
   &__blockNavigation,
   &__userNavigation {
     display: flex;
@@ -62,5 +68,86 @@
     padding-left: 20px;
     border-left: 1px solid $textColor-10;
     position: relative;
+  }
+}
+
+@media (max-width: 950px) {
+  .mobileMenu {
+    display: flex;
+  }
+  .header {
+    top: 0;
+
+    &__row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+      background-color: #fff;
+    }
+    &__navigation {
+      display: none;
+      &_forMobile {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        background-color: #fff;
+        padding: 15px;
+      }
+    }
+    &__navigationWrapper {
+      padding: 100px 20px 30px;
+      position: absolute;
+      top: -100vh;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: auto;
+      background-color: #fff;
+      transition: top 0.3s ease;
+      &_visible {
+        top: 0;
+        display: flex;
+        flex-direction: column;
+      }
+    }
+    &__blockNavigation,
+    &__userNavigation {
+      margin: 0;
+      margin-bottom: 30px;
+      justify-content: center;
+    }
+    .blockNavigation {
+      font-size: $textMd;
+      font-weight: bold;
+      text-transform: uppercase;
+      &__item {
+        margin-bottom: 10px;
+      }
+      &__itemLink {
+        align-items: center;
+      }
+      .material-icons {
+        font-size: 36px;
+      }
+    }
+    .userNavigation {
+      flex-wrap: wrap;
+      &__item {
+        margin-bottom: 15px;
+        .button {
+          font-size: $textMd;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .header__userNavigation .userNavigation__item {
+    width: 100%;
+    margin-right: 0;
   }
 }

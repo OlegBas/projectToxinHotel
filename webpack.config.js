@@ -16,6 +16,7 @@ const optimization = () => {
     },
   };
 
+  // TODO Исправить ошибку с подключением карты сайта
   if (isProd) {
     configObj.minimizer = [
       new OptimizeCssAssetWebpackPlugin(),
