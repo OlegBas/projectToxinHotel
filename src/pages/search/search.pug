@@ -1,5 +1,7 @@
 extends ../../layouts/layoutOnDefault
 include ../../components/renderAllRooms/renderAllRooms
+include ../../components/filters/filters
+
 include ../../components/groupElements/groupElements
 include ../../components/checkboxList/checkboxList
 include ../../components/selectElement/selectElement
@@ -18,8 +20,8 @@ block logo
 block content
   main.searchPage
     .container
-      .searchPage__columns
-        .filters
+      .searchPage__columns 
+        +filters("Фильтр комнат")
             .item.searchFilterItem1MarginBottom
                 +dateDropdown({start: new Date(2020, 7, 19), end: new Date(2020, 7, 23)})
             .item.searchFilterItem2MarginBottom
@@ -54,8 +56,6 @@ block content
                             {label: "Телевизор",  name: "additionally", value: "tv"},
                             {label: "Шампунь",  name: "additionally", value: "shampoo"},
                         ])
-           
-          
         -
           var roomsList = [
             {imagesList: ["assets/images/sliders/1-sm.jpg", "assets/images/sliders/2-sm.jpg", "assets/images/sliders/3-sm.jpg", "assets/images/sliders/2-sm.jpg"], number: sliders, isLux: true, cost: 9990, rate: 5, reviewCount: 145},

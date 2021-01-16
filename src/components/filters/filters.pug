@@ -1,0 +1,11 @@
+mixin filters(title)
+  .filters
+    section.filters__wrapper
+      form.filters__form(action="#" method="post")
+        block
+        button.visually-hidden(type="submit" tabindex=-1) Применить
+    button.filters__tongue.filters__tongue_open(type="button")
+      i.material-icons search
+    button.filters__tongue.filters__tongue_close(type="button")
+      i.material-icons view_module
+      

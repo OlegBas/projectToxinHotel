@@ -9,4 +9,5 @@ import "../../components/dateDropdown/dateDropdown";
 import "../../components/calendar/calendar";
 import "../../components/roomItem/roomItem";
 import "../../components/header/header";
+import "../../components/filters/filters";
 import "../../js/9ba1a07eb4.js";
