@@ -68,3 +68,29 @@
     justify-content: space-between;
   }
 }
+
+@media (max-width: 768px) {
+  .siteInfo {
+    margin: 0 auto;
+  }
+  .siteMap,
+  .siteInfo__description {
+    display: none;
+  }
+  .footer {
+    &__section_wide {
+      padding: 15.76% 0 0 0;
+    }
+    &__section_narrow {
+      border-top: none;
+      padding: 17px 0 14.32% 0;
+      .container {
+        flex-direction: column;
+      }
+    }
+    &__copyright {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+  }
+}
