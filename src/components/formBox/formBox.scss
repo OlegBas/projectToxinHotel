@@ -86,3 +86,8 @@ $paddingSm: 8px;
     margin-bottom: 31px;
   }
 }
+@media (max-width: 400px) {
+  .formBox {
+    width: 100%;
+  }
+}
