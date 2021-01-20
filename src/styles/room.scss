@@ -73,3 +73,11 @@
     }
   }
 }
+@media (max-width: 950px) {
+  .roomDescription {
+    flex-direction: column;
+    &__column {
+      margin-right: 0;
+    }
+  }
+}
